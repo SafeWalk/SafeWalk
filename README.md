@@ -1,2 +1,2 @@
-SafeWalkTest
+SafeWalk
 ============
