@@ -20,5 +20,5 @@
             android:width="100dp"
             android:height="100dp"
             android:layout_gravity="center_horizontal"
-            />
+            android:onClick="sendClick"/>
 </LinearLayout>

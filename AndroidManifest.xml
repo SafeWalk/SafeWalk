@@ -10,5 +10,12 @@
                     <category android:name="android.intent.category.LAUNCHER"/>
                 </intent-filter>
         </activity>
+        <activity android:name="SendMessageToSafeWalk"
+                  android:label="@string/app_name"
+                  android:parentActivityName="MainClass">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mac.SafeWalk"/>
+                  </activity>
     </application>
 </manifest>
