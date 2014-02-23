@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SafeWalk</string>
+    <string name="send">Send</string>
+    <string-array name="pick_up_choices">
+        <item>Wallace</item>
+        <item>Doty</item>
+        <item>Turck</item>
+        <item>Dupre</item>
+        <item>Campus Center</item>
+        <item>Library</item>
+        <item>Old Main</item>
+        <item>Janet Wallace</item>
+        <item>Olin Rice</item>
+        <item>Stadium</item>
+        <item>Carnegie</item>
+        <item>30 Mac</item>
+        <item>77 Mac</item>
+        <item>Neil Hall</item>
+        <!-- We need to complete this list -->
+    </string-array>
 </resources>
