@@ -26,5 +26,6 @@
             android:id="@+id/customLocationText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="invisible"
             android:hint="Or enter address..."/>
 </LinearLayout>
