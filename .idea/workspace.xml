@@ -23,8 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c581431a-d006-48d6-a772-02de439346d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SafeWalk.iws" />
@@ -597,7 +596,7 @@
       <workItem from="1393267377790" duration="7339000" />
       <workItem from="1393297971845" duration="1991000" />
       <workItem from="1393300150036" duration="1085000" />
-      <workItem from="1393442488459" duration="3797000" />
+      <workItem from="1393442488459" duration="4031000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1392840706891</created>
@@ -615,11 +614,15 @@
       <created>1393267816436</created>
       <updated>1393267816436</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Some code clean up and decomposition. Added Utils class to hold global variables.">
+      <created>1393455836939</created>
+      <updated>1393455836939</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27965000" />
+    <option name="totallyTimeSpent" value="28199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="803" extended-state="6" />
@@ -703,7 +706,8 @@
     <MESSAGE value="Add class" />
     <MESSAGE value="MainClass and some rough layout added" />
     <MESSAGE value="Added TextEdit&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added TextEdit&#10;" />
+    <MESSAGE value="Some code clean up and decomposition. Added Utils class to hold global variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some code clean up and decomposition. Added Utils class to hold global variables." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
