@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SafeWalk</string>
     <string name="send">Send</string>
+    <string name="other_hint">Or enter address</string>
     <string-array name="pick_up_choices">
         <item>Wallace</item>
         <item>Doty</item>

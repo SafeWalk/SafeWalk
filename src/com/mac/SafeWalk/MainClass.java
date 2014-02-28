@@ -3,6 +3,7 @@ package com.mac.SafeWalk;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -20,11 +21,21 @@ public class MainClass extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
         // set up spinner
         Spinner spinner = setSpinner();
-
         onSelectedInSpinner(spinner);
+        changeFonts();
+    }
+
+    /*
+     * Changes the fonts and color of the fonts
+     */
+    private void changeFonts() {
+        Typeface quicksand = Typeface.createFromAsset(getAssets(), "fonts/quicksand.otf");
+        TextView title = (TextView) findViewById(R.id.title);
+        TextView otherAddress = (TextView) findViewById(R.id.customLocationText);
+        title.setTypeface(quicksand);
+        otherAddress.setTypeface(quicksand);
     }
 
     /**
