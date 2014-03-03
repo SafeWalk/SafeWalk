@@ -1,7 +1,6 @@
 package com.mac.SafeWalk;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -24,18 +23,7 @@ public class MainClass extends Activity {
         // set up spinner
         Spinner spinner = setSpinner();
         onSelectedInSpinner(spinner);
-        changeFonts();
-    }
-
-    /*
-     * Changes the fonts and color of the fonts
-     */
-    private void changeFonts() {
-        Typeface quicksand = Typeface.createFromAsset(getAssets(), "fonts/quicksand.otf");
-        TextView title = (TextView) findViewById(R.id.title);
-        TextView otherAddress = (TextView) findViewById(R.id.customLocationText);
-        title.setTypeface(quicksand);
-        otherAddress.setTypeface(quicksand);
+        setFonts();
     }
 
     /**
@@ -43,8 +31,7 @@ public class MainClass extends Activity {
      * @param editText Edit Text field of the UI
      * @return String of the typed address
      */
-    private String retrieveLocation(EditText editText)
-    {
+    private String retrieveLocation(EditText editText) {
         return editText.getText().toString();
     }
 
@@ -88,8 +75,6 @@ public class MainClass extends Activity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
                 EditText customEdit = (EditText)findViewById(R.id.customLocationText);
                 if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Other")) {
                     // If student chooses the option "Other" from spinner, an EditText magically appears.
@@ -98,16 +83,29 @@ public class MainClass extends Activity {
                 } else {
                     // Otherwise the pick-up location is whatever the user chooses from spinner.
                     Utils.getUtils().setPickUpLocation(parent.getItemAtPosition(position).toString());
+                    customEdit.setVisibility(View.INVISIBLE);
                 }
             }
-
             // Leave this method; this has to be here.
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
+    }
 
+    /*
+     * Changes the fonts and color of the fonts
+     */
+    private void setFonts() {
+        //Make fonts from assets
+        Typeface quicksand = Typeface.createFromAsset(getAssets(), "fonts/quicksand.otf");
+        Typeface quicksandBold = Typeface.createFromAsset(getAssets(), "fonts/quicksand_bold.otf");
+        //Get Views
+        TextView title = (TextView) findViewById(R.id.title);
+        TextView otherAddress = (TextView) findViewById(R.id.customLocationText);
+        //Set Fonts
+        title.setTypeface(quicksand);
+        otherAddress.setTypeface(quicksandBold);
     }
 
 }

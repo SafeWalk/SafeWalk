@@ -9,8 +9,7 @@ public class Utils {
     private static final Utils UTILS = new Utils();
 
     private String pickUpLocation;
-    private final static String SAFEWALK_PHONE_NUMBER = "6512420083";  //Currently Kohei's number
-
+    private final static String SAFEWALK_PHONE_NUMBER = "6123237668"; //"6512420083";  //Currently Kohei's number
 
     private void Utils() {}
 

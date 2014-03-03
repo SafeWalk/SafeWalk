@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:weightSum="1"
-              android:background="@drawable/background">
+              android:background="@drawable/background_gradient">
 
     <Space
             android:layout_width="match_parent"
@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="invisible"
+            android:singleLine="true"
             android:hint="@string/other_hint"/>
 
     <Space
