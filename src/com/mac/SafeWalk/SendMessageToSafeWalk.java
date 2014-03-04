@@ -17,6 +17,8 @@ import static com.mac.SafeWalk.MainClass.*;
  */
 public class SendMessageToSafeWalk extends Activity {
 
+    private TextView contact_Info;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,14 +26,50 @@ public class SendMessageToSafeWalk extends Activity {
         setFontsAndText();
         // Sends SMS to provided phone number.
         sendSms(Utils.getSafewalkPhoneNumber());
+
+        load();
     }
+
+    /**
+     * Display contact information
+     */
+
+
+    public void load(){
+
+        contact_Info = (TextView) findViewById(R.id.contact);
+
+        //  Load Name
+        Utils.getUtils().nameData = getSharedPreferences(Utils.getUtils().filename, 0);
+        String nameReturned = Utils.getUtils().nameData.getString("sharedName", "Couldn't load data");
+
+        //  Load Phone Number
+        Utils.getUtils().phoneData = getSharedPreferences(Utils.getUtils().phoneFile, 0);
+        String numberReturned = Utils.getUtils().phoneData.getString("sharedNumber", "Couldn't load data");
+
+        //Display
+        contact_Info.setText("Name: " + nameReturned + "\nNumber: "+ numberReturned);
+    }
+
+
 
     /**
      * Sends SMS to a phone number. If invalid number, a dialog informs the user.
      */
     public void sendSms(String phoneNumber) {
+
+        //  Load Name
+        Utils.getUtils().nameData = getSharedPreferences(Utils.getUtils().filename, 0);
+        String nameReturned = Utils.getUtils().nameData.getString("sharedName", "Couldn't load data");
+
+        //  Load Phone Number
+        Utils.getUtils().phoneData = getSharedPreferences(Utils.getUtils().phoneFile, 0);
+        String numberReturned = Utils.getUtils().phoneData.getString("sharedNumber", "Couldn't load data");
+
+        String sms = Utils.getUtils().getPickUpLocation() + "\nThe request has been placed by " + nameReturned + ". \nFor any additional information please contact the user at " + numberReturned +".";
+
         try {
-            SmsManager.getDefault().sendTextMessage(phoneNumber, null, Utils.getUtils().getPickUpLocation(), null, null);
+            SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null);
         } catch (Exception e) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             AlertDialog dialog = alertDialogBuilder.create();

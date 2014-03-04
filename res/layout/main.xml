@@ -7,6 +7,14 @@
               android:weightSum="1"
               android:background="@drawable/background_gradient">
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:id="@+id/settings"
+            android:layout_gravity="right"
+            android:onClick="openSetting"/>
+
     <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"
@@ -48,11 +56,6 @@
             android:singleLine="true"
             android:hint="@string/other_hint"/>
 
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            />
-
     <Button
             android:layout_width="180dp"
             android:layout_height="180dp"
@@ -60,4 +63,9 @@
             android:background="@drawable/green_button"
             android:layout_gravity="center_horizontal"
             android:onClick="sendClick"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            />
+
 </LinearLayout>
