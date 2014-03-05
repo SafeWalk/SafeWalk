@@ -23,13 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c581431a-d006-48d6-a772-02de439346d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mac/SafeWalk/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/mac/SafeWalk/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/message_sent.xml" afterPath="$PROJECT_DIR$/res/layout/message_sent.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SafeWalk.iws" />
@@ -103,19 +98,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="76" selection-start="961" selection-end="961" vertical-scroll-proportion="0.8058104" vertical-offset="0" max-vertical-offset="714">
+            <state line="41" column="55" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendMessageToSafeWalk.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SendMessageToSafeWalk.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="107" selection-start="1672" selection-end="2105" vertical-scroll-proportion="0.0" vertical-offset="556" max-vertical-offset="1802">
+            <state line="65" column="14" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.53531075" vertical-offset="556" max-vertical-offset="1802">
               <folding />
             </state>
           </provider>
@@ -199,8 +194,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="960" />
-    <option name="height" value="1032" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -646,7 +643,7 @@
       <workItem from="1393875002350" duration="353000" />
       <workItem from="1393876115431" duration="1154000" />
       <workItem from="1393878956839" duration="2565000" />
-      <workItem from="1393881543333" duration="9732000" />
+      <workItem from="1393881543333" duration="10596000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1392840706891</created>
@@ -676,11 +673,15 @@
       <created>1393618952962</created>
       <updated>1393618952962</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implemented saving data through shared preferences">
+      <created>1393974926255</created>
+      <updated>1393974926255</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56592000" />
+    <option name="totallyTimeSpent" value="57456000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -703,7 +704,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1032" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -722,13 +723,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32770744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18961625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18584071" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.095846646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32522124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -787,7 +788,8 @@
     <MESSAGE value="Some code clean up and decomposition. Added Utils class to hold global variables." />
     <MESSAGE value="Some code clean up and decomposition. Added Utils class to hold global variables.&#10;" />
     <MESSAGE value="Added font, drawables and buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added font, drawables and buttons" />
+    <MESSAGE value="Implemented saving data through shared preferences" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented saving data through shared preferences" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1199,16 +1201,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="107" selection-start="1672" selection-end="2105" vertical-scroll-proportion="0.0" vertical-offset="556" max-vertical-offset="1802">
+        <state line="41" column="55" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="76" selection-start="961" selection-end="961" vertical-scroll-proportion="0.8058104" vertical-offset="0" max-vertical-offset="714">
+        <state line="65" column="14" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.53531075" vertical-offset="556" max-vertical-offset="1802">
           <folding />
         </state>
       </provider>
