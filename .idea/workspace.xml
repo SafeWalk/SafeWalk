@@ -2,9 +2,7 @@
 <project version="4">
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
-      <GlobalState>
-        <option name="visible" value="false" />
-      </GlobalState>
+      <GlobalState />
     </option>
   </component>
   <component name="AndroidLayouts">
@@ -15,15 +13,22 @@
       <layout url="file://$PROJECT_DIR$/res/layout/main.xml">
         <config>
           <device>Nexus 4</device>
-          <state>Portrait</state>
           <theme>@android:style/Theme.Holo</theme>
         </config>
       </layout>
     </layouts>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c581431a-d006-48d6-a772-02de439346d1" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/settings.xml" afterPath="$PROJECT_DIR$/res/layout/settings.xml" />
+>>>>>>> FETCH_HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SafeWalk.iws" />
@@ -91,16 +96,11 @@
       <file leaf-file-name="MainClass.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="56" column="114" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1620">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SendMessageToSafeWalk.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="43" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="825">
+=======
+            <state line="45" column="9" selection-start="1421" selection-end="1421" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2159">
+>>>>>>> FETCH_HEAD
               <folding />
             </state>
           </provider>
@@ -109,23 +109,65 @@
       <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="570">
+<<<<<<< HEAD
+            <state line="34" column="43" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="825">
+=======
+            <state line="41" column="55" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="850">
+>>>>>>> FETCH_HEAD
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SendMessageToSafeWalk.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state line="11" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="570">
+=======
+            <state line="87" column="0" selection-start="2890" selection-end="2890" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="1819">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="46" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="697">
+>>>>>>> FETCH_HEAD
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="icon.png" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/drawable/icon.png">
           <provider selected="true" editor-type-id="images">
             <state />
+=======
+      <file leaf-file-name="settings.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.81859756" vertical-offset="347" max-vertical-offset="1020">
+              <folding />
+            </state>
+>>>>>>> FETCH_HEAD
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <file leaf-file-name="message_sent.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/message_sent.xml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="22" column="33" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="540">
+=======
+            <state line="46" column="51" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="1173">
+>>>>>>> FETCH_HEAD
               <folding />
             </state>
           </provider>
@@ -134,10 +176,17 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="16" column="121" selection-start="882" selection-end="882" vertical-scroll-proportion="0.3598201" vertical-offset="0" max-vertical-offset="667">
+=======
+      <file leaf-file-name="Settings.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="66" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1547">
+>>>>>>> FETCH_HEAD
               <folding />
             </state>
           </provider>
@@ -156,21 +205,33 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/phonenumber.xml" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/green_button.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/call_safewalk_button.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java" />
+        <option value="$PROJECT_DIR$/res/layout/message_sent.xml" />
         <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" />
+        <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
+        <option value="$PROJECT_DIR$/res/layout/settings.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="250" />
     <option name="y" value="124" />
     <option name="width" value="1306" />
     <option name="height" value="764" />
+=======
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1050" />
+>>>>>>> FETCH_HEAD
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -201,6 +262,10 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> FETCH_HEAD
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -221,7 +286,10 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> FETCH_HEAD
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -241,10 +309,27 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$USER_HOME$/comp225" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../comp124" />
+>>>>>>> FETCH_HEAD
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="367" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/res/assets" />
+      <recent name="$PROJECT_DIR$/res/drawable" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/res/drawable" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.SafeWalk">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
@@ -488,6 +573,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -518,10 +608,27 @@
       <workItem from="1393267377790" duration="7339000" />
       <workItem from="1393297971845" duration="1991000" />
       <workItem from="1393300150036" duration="1085000" />
+<<<<<<< HEAD
       <workItem from="1393442488459" duration="4031000" />
       <workItem from="1393616512689" duration="2285000" />
       <workItem from="1393874830402" duration="989000" />
       <workItem from="1394047221958" duration="349000" />
+=======
+      <workItem from="1393442488459" duration="4480000" />
+      <workItem from="1393482398134" duration="2501000" />
+      <workItem from="1393518536970" duration="3954000" />
+      <workItem from="1393556441986" duration="137000" />
+      <workItem from="1393618176087" duration="773000" />
+      <workItem from="1393620707188" duration="468000" />
+      <workItem from="1393652026738" duration="2013000" />
+      <workItem from="1393654205977" duration="2147000" />
+      <workItem from="1393719354025" duration="2147000" />
+      <workItem from="1393875002350" duration="353000" />
+      <workItem from="1393876115431" duration="1154000" />
+      <workItem from="1393878956839" duration="2565000" />
+      <workItem from="1393881543333" duration="10626000" />
+      <workItem from="1394007810430" duration="231000" />
+>>>>>>> FETCH_HEAD
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1392840706891</created>
@@ -543,19 +650,67 @@
       <created>1393455836939</created>
       <updated>1393455836939</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Some code clean up and decomposition. Added Utils class to hold global variables.&#10;">
+      <created>1393455965005</created>
+      <updated>1393455965005</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added font, drawables and buttons">
+      <created>1393618952962</created>
+      <updated>1393618952962</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implemented saving data through shared preferences">
+      <created>1393974926255</created>
+      <updated>1393974926255</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implemented saving data through shared preferences&#10;">
+      <created>1393991089503</created>
+      <updated>1393991089503</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="31822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="250" y="124" width="1306" height="764" extended-state="0" />
     <editor active="true" />
+=======
+    <option name="totallyTimeSpent" value="57717000" />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="false" />
+>>>>>>> FETCH_HEAD
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3128998" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+>>>>>>> FETCH_HEAD
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -563,24 +718,38 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18961625" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3467626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18584071" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+>>>>>>> FETCH_HEAD
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27335376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3266187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09594883" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32522124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> FETCH_HEAD
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29402757" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32805756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32770744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> FETCH_HEAD
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -632,7 +801,11 @@
     <MESSAGE value="MainClass and some rough layout added" />
     <MESSAGE value="Added TextEdit&#10;" />
     <MESSAGE value="Some code clean up and decomposition. Added Utils class to hold global variables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some code clean up and decomposition. Added Utils class to hold global variables." />
+    <MESSAGE value="Some code clean up and decomposition. Added Utils class to hold global variables.&#10;" />
+    <MESSAGE value="Added font, drawables and buttons" />
+    <MESSAGE value="Implemented saving data through shared preferences" />
+    <MESSAGE value="Implemented saving data through shared preferences&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented saving data through shared preferences&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -642,6 +815,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="33" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="540">
@@ -655,31 +829,53 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="15" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="420">
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="70" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="555">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="114" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+=======
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="46" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="435">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="43" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="825">
           <folding />
         </state>
+=======
+    <entry file="file://$PROJECT_DIR$/res/drawable/green_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="51" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="210" />
+>>>>>>> FETCH_HEAD
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="11" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="570">
+=======
+        <state line="11" column="67" selection-start="325" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="450">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/drawable/icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -688,6 +884,11 @@
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="33" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="540">
+=======
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
@@ -695,6 +896,7 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="15" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="420">
@@ -719,17 +921,27 @@
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="570">
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="31" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1785">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="4" column="41" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="420">
+=======
+        <state line="4" column="46" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="435">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="58" selection-start="219" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="420">
@@ -746,6 +958,19 @@
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/res/drawable/green_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="51" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="67" selection-start="325" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+>>>>>>> FETCH_HEAD
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -975,20 +1200,52 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/call_safewalk.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/green_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="42" selection-start="253" selection-end="253" vertical-scroll-proportion="0.13636364" vertical-offset="0" max-vertical-offset="660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/call_safewalk_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+        <state line="5" column="58" selection-start="249" selection-end="249" vertical-scroll-proportion="0.13239875" vertical-offset="0" max-vertical-offset="642">
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="450">
+=======
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="633" selection-end="633" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="46" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/drawable/icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -997,6 +1254,11 @@
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="33" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="540">
+=======
+    <entry file="file://$PROJECT_DIR$/res/layout/message_sent.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="51" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="1173">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
@@ -1004,25 +1266,54 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="114" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1545">
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="66" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1547">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="9" selection-start="1421" selection-end="1421" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="2074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="55" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="43" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+        <state line="87" column="0" selection-start="2890" selection-end="2890" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="1819">
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="121" selection-start="882" selection-end="882" vertical-scroll-proportion="0.3598201" vertical-offset="0" max-vertical-offset="667">
+=======
+    <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.81859756" vertical-offset="347" max-vertical-offset="1020">
+>>>>>>> FETCH_HEAD
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>
