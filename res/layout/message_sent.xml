@@ -36,9 +36,24 @@
 
     <Space
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="30dp"
             />
 
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your contact information is:"
+            android:id="@+id/contact_Info"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text=""
+            android:id="@+id/contact"/>
+
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            />
     <Button
             android:layout_width="280.5dp"
             android:layout_height="60.5dp"

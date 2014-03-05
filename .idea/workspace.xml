@@ -2,9 +2,7 @@
 <project version="4">
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
-      <GlobalState>
-        <option name="visible" value="false" />
-      </GlobalState>
+      <GlobalState />
     </option>
   </component>
   <component name="AndroidLayouts">
@@ -15,31 +13,24 @@
       <layout url="file://$PROJECT_DIR$/res/layout/main.xml">
         <config>
           <device>Nexus 4</device>
-          <state>Portrait</state>
           <theme>@android:style/Theme.Holo</theme>
         </config>
       </layout>
     </layouts>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c581431a-d006-48d6-a772-02de439346d1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/background_gradient.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/call_safewalk.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/call_safewalk_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/green_send.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/green_send_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fonts/quicksand.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fonts/quicksand_bold.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/call_safewalk_button.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/green_button.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/guillermovera.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/message_sent.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/message_sent.xml" afterPath="$PROJECT_DIR$/res/layout/message_sent.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SafeWalk.iws" />
@@ -104,19 +95,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainClass.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainClass.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-2.804878" vertical-offset="1195" max-vertical-offset="1680">
+            <state line="45" column="9" selection-start="1421" selection-end="1421" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1905">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendMessageToSafeWalk.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
+      <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1170">
+            <state line="41" column="53" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
@@ -125,7 +116,16 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="28" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="450">
+            <state line="5" column="58" selection-start="249" selection-end="249" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendMessageToSafeWalk.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="87" column="0" selection-start="2890" selection-end="2890" vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="1755">
               <folding />
             </state>
           </provider>
@@ -134,7 +134,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="31" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="465">
+            <state line="25" column="46" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
@@ -142,13 +142,46 @@
       </file>
       <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="4" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1020">
+            <state line="16" column="0" selection-start="633" selection-end="633" vertical-scroll-proportion="-0.0" vertical-offset="240" max-vertical-offset="1140">
               <folding />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="1.2225" vertical-offset="291" max-vertical-offset="900">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="message_sent.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/message_sent.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="13" selection-start="1632" selection-end="1632" vertical-scroll-proportion="-1.1851852" vertical-offset="658" max-vertical-offset="1035">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settings.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="66" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1365">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -165,20 +198,26 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/phonenumber.xml" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/green_button.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/call_safewalk_button.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java" />
+        <option value="$PROJECT_DIR$/res/layout/message_sent.xml" />
+        <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java" />
+        <option value="$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java" />
+        <option value="$PROJECT_DIR$/res/layout/settings.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="235" />
-    <option name="y" value="49" />
-    <option name="width" value="1216" />
-    <option name="height" value="748" />
+    <option name="x" value="106" />
+    <option name="y" value="22" />
+    <option name="width" value="973" />
+    <option name="height" value="756" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -209,7 +248,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -295,9 +333,14 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,9 +360,23 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../comp225" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../comp124" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="367" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/res/assets" />
+      <recent name="$PROJECT_DIR$/res/drawable" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/res/drawable" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.SafeWalk">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
@@ -539,9 +596,9 @@
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="Nexus4" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -563,6 +620,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -592,13 +654,22 @@
       <workItem from="1393259251336" duration="683000" />
       <workItem from="1393267377790" duration="7339000" />
       <workItem from="1393297971845" duration="1991000" />
-      <workItem from="1393300150036" duration="1592000" />
-      <workItem from="1393641997210" duration="1392000" />
-      <workItem from="1393648883923" duration="5601000" />
-      <workItem from="1393679309852" duration="1884000" />
-      <workItem from="1393688351805" duration="606000" />
-      <workItem from="1393702116990" duration="833000" />
-      <workItem from="1393876823969" duration="721000" />
+      <workItem from="1393300150036" duration="1085000" />
+      <workItem from="1393442488459" duration="4480000" />
+      <workItem from="1393482398134" duration="2501000" />
+      <workItem from="1393518536970" duration="3954000" />
+      <workItem from="1393556441986" duration="137000" />
+      <workItem from="1393618176087" duration="773000" />
+      <workItem from="1393620707188" duration="468000" />
+      <workItem from="1393652026738" duration="2013000" />
+      <workItem from="1393654205977" duration="2147000" />
+      <workItem from="1393719354025" duration="2147000" />
+      <workItem from="1393875002350" duration="353000" />
+      <workItem from="1393876115431" duration="1154000" />
+      <workItem from="1393878956839" duration="2565000" />
+      <workItem from="1393881543333" duration="10626000" />
+      <workItem from="1394007810430" duration="231000" />
+      <workItem from="1394047200484" duration="394000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1392840706891</created>
@@ -616,23 +687,60 @@
       <created>1393267816436</created>
       <updated>1393267816436</updated>
     </task>
-    <task id="LOCAL-00005" summary="Added TextEdit&#10;">
-      <created>1393301256917</created>
-      <updated>1393301256917</updated>
+    <task id="LOCAL-00005" summary="Some code clean up and decomposition. Added Utils class to hold global variables.">
+      <created>1393455836939</created>
+      <updated>1393455836939</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Some code clean up and decomposition. Added Utils class to hold global variables.&#10;">
+      <created>1393455965005</created>
+      <updated>1393455965005</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added font, drawables and buttons">
+      <created>1393618952962</created>
+      <updated>1393618952962</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implemented saving data through shared preferences">
+      <created>1393974926255</created>
+      <updated>1393974926255</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implemented saving data through shared preferences&#10;">
+      <created>1393991089503</created>
+      <updated>1393991089503</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35712000" />
+    <option name="totallyTimeSpent" value="58111000" />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="235" y="49" width="1216" height="748" extended-state="1" />
+    <frame x="106" y="22" width="973" height="756" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31243578" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -640,36 +748,35 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18961625" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35493374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18486172" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29523027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32805756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3175745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32522124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29402757" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32805756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32770744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27488515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -687,8 +794,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32805756" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3467626" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -708,7 +815,12 @@
     <MESSAGE value="Add class" />
     <MESSAGE value="MainClass and some rough layout added" />
     <MESSAGE value="Added TextEdit&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added TextEdit&#10;" />
+    <MESSAGE value="Some code clean up and decomposition. Added Utils class to hold global variables." />
+    <MESSAGE value="Some code clean up and decomposition. Added Utils class to hold global variables.&#10;" />
+    <MESSAGE value="Added font, drawables and buttons" />
+    <MESSAGE value="Implemented saving data through shared preferences" />
+    <MESSAGE value="Implemented saving data through shared preferences&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented saving data through shared preferences&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -718,26 +830,78 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="41" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="540">
+        <state line="11" column="70" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="46" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/green_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="51" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="67" selection-start="325" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="428" max-vertical-offset="1500">
+        <state line="24" column="31" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="46" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/green_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="51" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="67" selection-start="325" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="2" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="31" selection-start="787" selection-end="787" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1020">
+        <state line="37" column="46" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
@@ -757,127 +921,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="41" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="1070" max-vertical-offset="1500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="28" selection-start="1631" selection-end="1631" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="41" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="540">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="1" selection-start="2924" selection-end="2925" vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="1500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="9" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="65" selection-start="222" selection-end="284" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="41" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="2" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="5" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="41" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
@@ -909,13 +959,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="41" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="540">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
@@ -947,13 +997,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="41" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="540">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
@@ -985,13 +1035,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="48" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="525">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
@@ -1023,13 +1073,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="48" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="525">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
@@ -1061,49 +1111,98 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="38" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="435">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/call_safewalk.png">
+      <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/res/drawable/green_button.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="450">
-          <folding />
-        </state>
+        <state line="6" column="42" selection-start="253" selection-end="253" vertical-scroll-proportion="0.13636364" vertical-offset="0" max-vertical-offset="660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/call_safewalk_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="31" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="465">
+        <state line="25" column="46" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="66" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1547">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="9" selection-start="1421" selection-end="1421" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="2074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="53" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageToSafeWalk.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1170">
+        <state line="87" column="0" selection-start="2890" selection-end="2890" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="1819">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/message_sent.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="13" selection-start="1632" selection-end="1632" vertical-scroll-proportion="-1.1851852" vertical-offset="658" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="58" selection-start="249" selection-end="249" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="4" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-2.804878" vertical-offset="1195" max-vertical-offset="1680">
+        <state line="16" column="0" selection-start="633" selection-end="633" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="1.2225" vertical-offset="291" max-vertical-offset="900">
           <folding />
         </state>
       </provider>

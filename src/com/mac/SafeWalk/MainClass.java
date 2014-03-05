@@ -50,6 +50,16 @@ public class MainClass extends Activity {
     }
 
     /**
+     * Go to settings when the setting button is pressed
+     */
+    public void openSetting (View view){
+        Intent settings = new Intent(this, Settings.class);
+        startActivity(settings);
+    }
+
+
+
+    /**
      * This method sets up the spinner wheel for the different pickup choices of the main UI
      * @return spinner
      */
