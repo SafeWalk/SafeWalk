@@ -85,6 +85,7 @@ public class SendMessageToSafeWalk extends Activity {
      * @param view Call Safewalk button.
      */
 
+
     public void callSafewalk(View view) {
         Intent callIntent = new Intent(Intent.ACTION_DIAL);
         callIntent.setData(Uri.parse("tel:" + Utils.getSafewalkPhoneNumber()));
