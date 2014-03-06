@@ -30,6 +30,12 @@
             android:textAlignment="center"
             android:textSize="60sp"/>
 
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Availability"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"/>
     <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"
