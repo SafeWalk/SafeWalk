@@ -6,6 +6,10 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 /**
  *
@@ -16,6 +20,7 @@ public class MainClass extends Activity {
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +29,28 @@ public class MainClass extends Activity {
         Spinner spinner = setSpinner();
         onSelectedInSpinner(spinner);
         setFonts();
+
+        //code to update safewalk users in realtime
+
+        // Create a reference to a Firebase location
+        Firebase ref = new Firebase("https://safewalk.firebaseio.com/");
+        ref.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                TextView Avail = (TextView) findViewById(R.id.Availability);
+                Avail.setText(snap.getValue(String.class));
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+
+        });
+
+
     }
 
     /**
