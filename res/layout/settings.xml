@@ -51,5 +51,4 @@
             android:id="@+id/displayNumber"
             android:layout_weight="0.01"/>
 
-
 </LinearLayout>

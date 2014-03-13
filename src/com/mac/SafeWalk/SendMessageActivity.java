@@ -38,12 +38,12 @@ public class SendMessageActivity extends Activity {
         contact_Info = (TextView) findViewById(R.id.contact);
 
         //  Load Name
-        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0)); //= getSharedPreferences(Utils.getUtils().filename, 0);
+        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0));
         String nameReturned = Utils.getUtils().getNameData().getString("sharedName", "Couldn't load data");
 
         //  Load Phone Number
-        Utils.getUtils().setPhoneData(getSharedPreferences(Utils.getUtils().phoneFile, 0)); //= getSharedPreferences(Utils.getUtils().phoneFile, 0);
-        String numberReturned = Utils.getUtils().getPhoneData().getString("sharedNumber", "Couldn't load data");
+        Utils.getUtils().setPhoneData(getSharedPreferences(Utils.getUtils().phoneFile, 0));
+        String numberReturned = Utils.getUtils().getPhoneData().getString("sharedPhone", "Couldn't load data");
 
         //Display
         contact_Info.setText("Name: " + nameReturned + "\nNumber: "+ numberReturned);
@@ -57,12 +57,12 @@ public class SendMessageActivity extends Activity {
     public void sendSms(String phoneNumber) {
 
         //  Load Name
-        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0)); //= getSharedPreferences(Utils.getUtils().filename, 0);
+        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0));
         String nameReturned = Utils.getUtils().getNameData().getString("sharedName", "Couldn't load data");
 
         //  Load Phone Number
-        Utils.getUtils().setPhoneData(getSharedPreferences(Utils.getUtils().phoneFile, 0));// = getSharedPreferences(Utils.getUtils().phoneFile, 0);
-        String numberReturned = Utils.getUtils().getPhoneData().getString("sharedNumber", "Couldn't load data");
+        Utils.getUtils().setPhoneData(getSharedPreferences(Utils.getUtils().phoneFile, 0));
+        String numberReturned = Utils.getUtils().getPhoneData().getString("sharedPhone", "Couldn't load data");
 
         String sms = Utils.getUtils().getPickUpLocation() + "\nThe request has been placed by " + nameReturned + ". \nFor any additional information please contact the user at " + numberReturned +".";
 

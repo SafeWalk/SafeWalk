@@ -25,9 +25,9 @@ public class HomeScreenActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        // set up spinner
-        Spinner spinner = setSpinner();
-        onSelectedInSpinner(spinner);
+        // set up locationSpinner
+        Spinner locationSpinner = setSpinner();
+        onSelectedInSpinner(locationSpinner);
         setFonts();
 
         //code to update safewalk users in realtime
@@ -71,7 +71,7 @@ public class HomeScreenActivity extends Activity {
         if (isCustom) {
             Utils.getUtils().setPickUpLocation(retrieveLocation(customEdit));
         }
-        Intent intent = new Intent(this, SendMessageToSafeWalk.class);
+        Intent intent = new Intent(this, SendMessageActivity.class);
         startActivity(intent);
 
     }
@@ -80,7 +80,7 @@ public class HomeScreenActivity extends Activity {
      * Go to settings when the setting button is pressed
      */
     public void openSetting (View view){
-        Intent settings = new Intent(this, Settings.class);
+        Intent settings = new Intent(this, SettingsActivity.class);
         startActivity(settings);
     }
 

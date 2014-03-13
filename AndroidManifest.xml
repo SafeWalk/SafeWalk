@@ -7,23 +7,23 @@
     <application android:icon="@drawable/iconhd"
                  android:label="@string/app_name"
                  android:theme="@android:style/Theme.NoTitleBar">
-        <activity android:name="MainClass"
+        <activity android:name=".HomeScreenActivity"
                 android:label="@string/app_name">
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN"/>
                     <category android:name="android.intent.category.LAUNCHER"/>
                 </intent-filter>
         </activity>
-        <activity android:name="SendMessageToSafeWalk"
+        <activity android:name=".SendMessageActivity"
                   android:label="@string/app_name"
-                  android:parentActivityName="MainClass">
+                  android:parentActivityName=".HomeScreenActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mac.SafeWalk"/>
         </activity>
-        <activity android:name=".Settings"
+        <activity android:name=".SettingsActivity"
                   android:label="@string/app_name"
-                  android:parentActivityName="MainClass">
+                  android:parentActivityName=".HomeScreenActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.mac.SafeWalk"/>

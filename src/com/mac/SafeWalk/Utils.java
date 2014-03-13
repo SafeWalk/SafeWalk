@@ -10,6 +10,14 @@ public class Utils {
 
     private static final Utils UTILS = new Utils();
 
+    // Phone and name data
+    private SharedPreferences nameData;
+    private SharedPreferences phoneData;
+
+    // Where to save the name and phone data
+    public static String filename = "MyName";
+    public static String phoneFile = "MyPhoneNumber";
+
     private String pickUpLocation;
     private final static String SAFEWALK_PHONE_NUMBER = "6128393666"; //"6512420083";  //Currently Kohei's number
 
@@ -31,14 +39,19 @@ public class Utils {
         return SAFEWALK_PHONE_NUMBER;
     }
 
+    public SharedPreferences getNameData(){
+        return nameData;
+    }
 
+    public void setNameData(SharedPreferences content) {
+        this.nameData = content;
+    }
 
-    // Phone and name data
-    public SharedPreferences nameData;
-    public SharedPreferences phoneData;
+    public SharedPreferences getPhoneData(){
+        return this.phoneData;
+    }
 
-    // Where to save the name and phone data
-    public static String filename = "MyName";
-    public static String phoneFile = "MyPhoneNumber";
-
+    public void setPhoneData(SharedPreferences content) {
+        this.phoneData = content;
+    }
 }
