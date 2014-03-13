@@ -29,10 +29,13 @@ public class HomeScreenActivity extends Activity {
         Spinner locationSpinner = setSpinner();
         onSelectedInSpinner(locationSpinner);
         setFonts();
+        checkAvailability();
+    }
 
-        //code to update safewalk users in realtime
-
-        // Create a reference to a Firebase location
+    /**
+     * Checks the availability of Safewalk though Firebase
+     */
+    private void checkAvailability() {
         Firebase ref = new Firebase("https://safewalk.firebaseio.com/");
         ref.addValueEventListener(new ValueEventListener() {
 
@@ -40,17 +43,12 @@ public class HomeScreenActivity extends Activity {
             public void onDataChange(DataSnapshot snap) {
                 TextView Avail = (TextView) findViewById(R.id.Availability);
                 Avail.setText(snap.getValue(String.class));
-
             }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
-
             }
-
         });
-
-
     }
 
     /**

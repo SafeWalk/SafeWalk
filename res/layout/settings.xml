@@ -9,24 +9,28 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter Name"
+            android:text="@string/name_field"
             android:id="@+id/textView"/>
 
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/name" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/name"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter Phone Number"
+            android:text="@string/number_field"
             android:id="@+id/textView2"/>
 
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/number" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/number"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"/>
 
     <Button
             android:layout_width="wrap_content"
