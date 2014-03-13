@@ -10,7 +10,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings"
             android:id="@+id/settings"
             android:layout_gravity="right"
             android:onClick="openSetting"/>
@@ -30,12 +30,13 @@
             android:textAlignment="center"
             android:textSize="60sp"/>
 
-    <EditText
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Availability"
             android:layout_gravity="center_horizontal"
             android:textSize="20sp"/>
+
     <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"

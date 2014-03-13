@@ -6,25 +6,27 @@ import android.content.SharedPreferences;
  * Utilities class that keeps track of global variables. It is a singleton so there
  * is only one instance of this class.
  */
-public class Utils {
+public class Settings {
 
-    private static final Utils UTILS = new Utils();
+    private static final Settings settings = new Settings();
+
+
+    private String pickUpLocation;
+    private long lastSendTime = 0;
+    private final static String SAFEWALK_PHONE_NUMBER = ""; //"6512420083";  //Currently Kohei's number
 
     // Phone and name data
     private SharedPreferences nameData;
     private SharedPreferences phoneData;
 
     // Where to save the name and phone data
-    public static String filename = "MyName";
-    public static String phoneFile = "MyPhoneNumber";
+    private static String filename = "MyName";
+    private static String phoneFile = "MyPhoneNumber";
 
-    private String pickUpLocation;
-    private final static String SAFEWALK_PHONE_NUMBER = "6128393666"; //"6512420083";  //Currently Kohei's number
+    private void Settings() {}
 
-    private void Utils() {}
-
-    public static Utils getUtils() {
-        return UTILS;
+    public static Settings getSettings() {
+        return settings;
     }
 
     public String getPickUpLocation() {
@@ -53,5 +55,21 @@ public class Utils {
 
     public void setPhoneData(SharedPreferences content) {
         this.phoneData = content;
+    }
+
+    public static String getFilename() {
+        return filename;
+    }
+
+    public static String getPhoneFile() {
+        return phoneFile;
+    }
+
+    public long getLastSendTime() {
+        return lastSendTime;
+    }
+
+    public void setLastSendTime(long lastSendTime) {
+        this.lastSendTime = lastSendTime;
     }
 }

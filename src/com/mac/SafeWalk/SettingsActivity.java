@@ -1,9 +1,7 @@
 package com.mac.SafeWalk;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,8 +24,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
         setupVariables();
 
-        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0));
-        Utils.getUtils().setPhoneData(getSharedPreferences(Utils.getUtils().phoneFile, 0));
+        Settings.getSettings().setNameData(getSharedPreferences(Settings.getFilename(), 0));
+        Settings.getSettings().setPhoneData(getSharedPreferences(Settings.getPhoneFile(), 0));
 
     }
 
@@ -60,28 +58,26 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
     }
 
     public void save(){
-
         //  Save name
         String stringData1 = name.getText().toString();
-        SharedPreferences.Editor nameEditor = Utils.getUtils().getNameData().edit();
+        SharedPreferences.Editor nameEditor = Settings.getSettings().getNameData().edit();
         nameEditor.putString("sharedName", stringData1);
         nameEditor.commit();
         //  Save phone number
         String stringData2 = phone.getText().toString();
-        SharedPreferences.Editor phoneEditor = Utils.getUtils().getPhoneData().edit();
+        SharedPreferences.Editor phoneEditor = Settings.getSettings().getPhoneData().edit();
         phoneEditor.putString("sharedPhone", stringData2);
         phoneEditor.commit();
     }
 
     public void load(){
-
         //  Load Name and display
-        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0));
-        String nameReturned = Utils.getUtils().getNameData().getString("sharedName", "Couldn't load data");
+        Settings.getSettings().setNameData(getSharedPreferences(Settings.getFilename(), 0));
+        String nameReturned = Settings.getSettings().getNameData().getString("sharedName", "Couldn't load data");
         nameResult.setText("Your name is: " + nameReturned);
         //  Load Phone Number and display
-        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().phoneFile, 0));
-        String numberReturned = Utils.getUtils().getNameData().getString("sharedPhone", "Couldn't load data");
+        Settings.getSettings().setNameData(getSharedPreferences(Settings.getPhoneFile(), 0));
+        String numberReturned = Settings.getSettings().getNameData().getString("sharedPhone", "Couldn't load data");
         phoneResult.setText("Your phone number is: " + numberReturned);
     }
 

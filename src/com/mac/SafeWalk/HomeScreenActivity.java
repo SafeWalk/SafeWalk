@@ -6,10 +6,10 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
-//import com.firebase.client.DataSnapshot;
-//import com.firebase.client.Firebase;
-//import com.firebase.client.FirebaseError;
-//import com.firebase.client.ValueEventListener;
+import com.firebase.client.Firebase;
+import com.firebase.client.ValueEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.FirebaseError;
 
 /**
  *
@@ -32,23 +32,23 @@ public class HomeScreenActivity extends Activity {
 
         //code to update safewalk users in realtime
 
-//        // Create a reference to a Firebase location
-//        Firebase ref = new Firebase("https://safewalk.firebaseio.com/");
-//        ref.addValueEventListener(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot snap) {
-//                TextView Avail = (TextView) findViewById(R.id.Availability);
-//                Avail.setText(snap.getValue(String.class));
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(FirebaseError firebaseError) {
-//
-//            }
-//
-//        });
+        // Create a reference to a Firebase location
+        Firebase ref = new Firebase("https://safewalk.firebaseio.com/");
+        ref.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                TextView Avail = (TextView) findViewById(R.id.Availability);
+                Avail.setText(snap.getValue(String.class));
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+
+        });
 
 
     }
@@ -69,7 +69,7 @@ public class HomeScreenActivity extends Activity {
     public void sendClick(View view) {
         EditText customEdit = (EditText)findViewById(R.id.customLocationText);
         if (isCustom) {
-            Utils.getUtils().setPickUpLocation(retrieveLocation(customEdit));
+            Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
         }
         Intent intent = new Intent(this, SendMessageActivity.class);
         startActivity(intent);
@@ -83,8 +83,6 @@ public class HomeScreenActivity extends Activity {
         Intent settings = new Intent(this, SettingsActivity.class);
         startActivity(settings);
     }
-
-
 
     /**
      * This method sets up the spinner wheel for the different pickup choices of the main UI
@@ -102,7 +100,7 @@ public class HomeScreenActivity extends Activity {
     }
 
     /**
-     * Sets the pick up location of the variable pickUpLocation on the Utils class depending on the
+     * Sets the pick up location of the variable pickUpLocation on the Settings class depending on the
      * selection
      * @param spinner Spinner with all options and "Other" option
      */
@@ -119,7 +117,7 @@ public class HomeScreenActivity extends Activity {
                     isCustom = true;
                 } else {
                     // Otherwise the pick-up location is whatever the user chooses from spinner.
-                    Utils.getUtils().setPickUpLocation(parent.getItemAtPosition(position).toString());
+                    Settings.getSettings().setPickUpLocation(parent.getItemAtPosition(position).toString());
                     customEdit.setVisibility(View.INVISIBLE);
                 }
             }
