@@ -10,12 +10,10 @@ import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.TextView;
 
-import static com.mac.SafeWalk.MainClass.*;
-
 /**
  * This activity should sends the SMS to a predetermined SafeWalk number
  */
-public class SendMessageToSafeWalk extends Activity {
+public class SendMessageActivity extends Activity {
 
     private TextView contact_Info;
 
@@ -40,12 +38,12 @@ public class SendMessageToSafeWalk extends Activity {
         contact_Info = (TextView) findViewById(R.id.contact);
 
         //  Load Name
-        Utils.getUtils().nameData = getSharedPreferences(Utils.getUtils().filename, 0);
-        String nameReturned = Utils.getUtils().nameData.getString("sharedName", "Couldn't load data");
+        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0)); //= getSharedPreferences(Utils.getUtils().filename, 0);
+        String nameReturned = Utils.getUtils().getNameData().getString("sharedName", "Couldn't load data");
 
         //  Load Phone Number
-        Utils.getUtils().phoneData = getSharedPreferences(Utils.getUtils().phoneFile, 0);
-        String numberReturned = Utils.getUtils().phoneData.getString("sharedNumber", "Couldn't load data");
+        Utils.getUtils().setPhoneData(getSharedPreferences(Utils.getUtils().phoneFile, 0)); //= getSharedPreferences(Utils.getUtils().phoneFile, 0);
+        String numberReturned = Utils.getUtils().getPhoneData().getString("sharedNumber", "Couldn't load data");
 
         //Display
         contact_Info.setText("Name: " + nameReturned + "\nNumber: "+ numberReturned);
@@ -59,12 +57,12 @@ public class SendMessageToSafeWalk extends Activity {
     public void sendSms(String phoneNumber) {
 
         //  Load Name
-        Utils.getUtils().nameData = getSharedPreferences(Utils.getUtils().filename, 0);
-        String nameReturned = Utils.getUtils().nameData.getString("sharedName", "Couldn't load data");
+        Utils.getUtils().setNameData(getSharedPreferences(Utils.getUtils().filename, 0)); //= getSharedPreferences(Utils.getUtils().filename, 0);
+        String nameReturned = Utils.getUtils().getNameData().getString("sharedName", "Couldn't load data");
 
         //  Load Phone Number
-        Utils.getUtils().phoneData = getSharedPreferences(Utils.getUtils().phoneFile, 0);
-        String numberReturned = Utils.getUtils().phoneData.getString("sharedNumber", "Couldn't load data");
+        Utils.getUtils().setPhoneData(getSharedPreferences(Utils.getUtils().phoneFile, 0));// = getSharedPreferences(Utils.getUtils().phoneFile, 0);
+        String numberReturned = Utils.getUtils().getPhoneData().getString("sharedNumber", "Couldn't load data");
 
         String sms = Utils.getUtils().getPickUpLocation() + "\nThe request has been placed by " + nameReturned + ". \nFor any additional information please contact the user at " + numberReturned +".";
 
