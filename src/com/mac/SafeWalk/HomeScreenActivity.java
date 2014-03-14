@@ -1,9 +1,11 @@
 package com.mac.SafeWalk;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.firebase.client.Firebase;
@@ -20,6 +22,7 @@ public class HomeScreenActivity extends Activity {
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
     private Button sendButton;
+    private String swStatus;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class HomeScreenActivity extends Activity {
             @Override
             public void onDataChange(DataSnapshot snap) {
                 setSendButton(snap.getValue(String.class));
+                swStatus = snap.getValue(String.class);
+                Log.w("Status", ">>>>>>>>>>>>>" + swStatus);
             }
 
             @Override
@@ -62,17 +67,28 @@ public class HomeScreenActivity extends Activity {
     }
 
     /**
-     * Sends the pick-up location to the next activity so that the Sms Manager can send a text message.
+     * Sends the pick-up location to the next activity so that the Sms Manager can send a text message if
+     * the safewalk status is available. Else it warns the user of the current state.
      * Accessed when "send" button is clicked. Retrieves data from EditText via retrieveLocation method.
      */
     public void sendClick(View view) {
-        if (sendButton.getText().equals("Send")){
+        if (swStatus.equals("yes")){
             EditText customEdit = (EditText)findViewById(R.id.customLocationText);
             if (isCustom) {
                 Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
             }
             Intent intent = new Intent(this, SendMessageActivity.class);
             startActivity(intent);
+        } else if (swStatus.equals("busy")){
+            AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
+            safewalkBusyDialog.setTitle("Safewalk is busy");
+            safewalkBusyDialog.setMessage("We're sorry, all our workers are currently busy");
+            safewalkBusyDialog.show();
+        } else {
+            AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
+            safewalkBusyDialog.setTitle("Safewalk is not available");
+            safewalkBusyDialog.setMessage("We're sorry, Safewalk is not available at this time");
+            safewalkBusyDialog.show();
         }
 
     }
@@ -146,6 +162,10 @@ public class HomeScreenActivity extends Activity {
 
     }
 
+    /**
+     * setSendButton changes the color of the button depending on the status of Safewalk
+     * @param status String containing the status of Safewalk in real time
+     */
     private void setSendButton(String status) {
         if (status.equals("yes")){
             sendButton.setBackgroundResource(R.drawable.available_button);

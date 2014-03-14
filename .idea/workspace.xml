@@ -19,22 +19,11 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Status" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c581431a-d006-48d6-a772-02de439346d1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/busy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/busy_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/green_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/not_available.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/not_available_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/busy_button.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/not_available_button.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/green_send_pressed.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/drawable/green_button.xml" afterPath="$PROJECT_DIR$/res/drawable/available_button.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/green_send.png" afterPath="$PROJECT_DIR$/res/drawable/green_send.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/HomeScreenActivity.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/HomeScreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cbecbe45-bfe1-4818-9234-e246d21b89ab" name="Failed commit: Default" comment="&#10;k" />
@@ -103,7 +92,7 @@
       <file leaf-file-name="HomeScreenActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/HomeScreenActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="12" selection-start="1808" selection-end="1808" vertical-scroll-proportion="0.47404063" vertical-offset="720" max-vertical-offset="2565">
+            <state line="89" column="94" selection-start="3312" selection-end="3312" vertical-scroll-proportion="3.013544" vertical-offset="0" max-vertical-offset="2865">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,6 +108,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="23" column="0" selection-start="865" selection-end="865" vertical-scroll-proportion="-7.7777777" vertical-offset="135" max-vertical-offset="1065">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendMessageActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="31" selection-start="1629" selection-end="1876" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1815">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -582,7 +582,7 @@
       <workItem from="1394678925866" duration="3223000" />
       <workItem from="1394683276564" duration="40000" />
       <workItem from="1394683538212" duration="254000" />
-      <workItem from="1394688288854" duration="9309000" />
+      <workItem from="1394688288854" duration="10258000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1392840706891</created>
@@ -620,11 +620,15 @@
       <created>1394691999849</created>
       <updated>1394691999849</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added the three button functionality">
+      <created>1394755453513</created>
+      <updated>1394755453513</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65894000" />
+    <option name="totallyTimeSpent" value="66843000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -672,7 +676,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35622317" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35622317" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32489452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -735,7 +739,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/SafeWalk/SafeWalk&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;" />
     <MESSAGE value="Changed a non-working button, changed Utils for Settings, added a time-limit for messages + alert, forced the app to be in portrait mode, made some public variables private, deleted unnecessary code." />
     <MESSAGE value="Changed the 'settings' button, made the setting input fields one-liners, decomposed the firebase code into a different method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the 'settings' button, made the setting input fields one-liners, decomposed the firebase code into a different method." />
+    <MESSAGE value="Added the three button functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the three button functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1136,15 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="29" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1815">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="397">
@@ -1234,9 +1230,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SendMessageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="31" selection-start="1629" selection-end="1876" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1815">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/HomeScreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="12" selection-start="1808" selection-end="1808" vertical-scroll-proportion="0.47404063" vertical-offset="720" max-vertical-offset="2565">
+        <state line="89" column="94" selection-start="3312" selection-end="3312" vertical-scroll-proportion="3.013544" vertical-offset="0" max-vertical-offset="2865">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
