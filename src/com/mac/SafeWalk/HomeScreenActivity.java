@@ -19,7 +19,7 @@ public class HomeScreenActivity extends Activity {
 
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
-
+    private Button sendButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,9 @@ public class HomeScreenActivity extends Activity {
         // set up locationSpinner
         Spinner locationSpinner = setSpinner();
         onSelectedInSpinner(locationSpinner);
-        setFonts();
+        sendButton = (Button) findViewById(R.id.send);
         checkAvailability();
+        setFonts();
     }
 
     /**
@@ -41,8 +42,7 @@ public class HomeScreenActivity extends Activity {
 
             @Override
             public void onDataChange(DataSnapshot snap) {
-                TextView Avail = (TextView) findViewById(R.id.Availability);
-                Avail.setText(snap.getValue(String.class));
+                setSendButton(snap.getValue(String.class));
             }
 
             @Override
@@ -50,6 +50,7 @@ public class HomeScreenActivity extends Activity {
             }
         });
     }
+
 
     /**
      * Retrieve address typed in the Edit Text that appears when "Other" is selected on the spinner
@@ -65,12 +66,14 @@ public class HomeScreenActivity extends Activity {
      * Accessed when "send" button is clicked. Retrieves data from EditText via retrieveLocation method.
      */
     public void sendClick(View view) {
-        EditText customEdit = (EditText)findViewById(R.id.customLocationText);
-        if (isCustom) {
-            Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
+        if (sendButton.getText().equals("Send")){
+            EditText customEdit = (EditText)findViewById(R.id.customLocationText);
+            if (isCustom) {
+                Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
+            }
+            Intent intent = new Intent(this, SendMessageActivity.class);
+            startActivity(intent);
         }
-        Intent intent = new Intent(this, SendMessageActivity.class);
-        startActivity(intent);
 
     }
 
@@ -139,6 +142,24 @@ public class HomeScreenActivity extends Activity {
         //Set Fonts
         title.setTypeface(quicksand);
         otherAddress.setTypeface(quicksandBold);
+        sendButton.setTypeface(quicksand);
+
+    }
+
+    private void setSendButton(String status) {
+        if (status.equals("yes")){
+            sendButton.setBackgroundResource(R.drawable.available_button);
+            sendButton.setText("Send");
+            sendButton.setTextSize(36);
+        } else if (status.equals("busy")){
+            sendButton.setBackgroundResource(R.drawable.busy);
+            sendButton.setText("Busy");
+            sendButton.setTextSize(36);
+        } else {
+            sendButton.setBackgroundResource(R.drawable.not_available);
+            sendButton.setText("Not Available");
+            sendButton.setTextSize(22);
+        }
     }
 
 }

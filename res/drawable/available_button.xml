@@ -4,6 +4,6 @@
     android:dither="true"
     android:variablePadding="false">
     <item android:state_pressed="true"
-          android:drawable="@drawable/green_send_pressed"/>
+          android:drawable="@drawable/green_pressed"/>
     <item android:drawable="@drawable/green_send"/>
 </selector>
