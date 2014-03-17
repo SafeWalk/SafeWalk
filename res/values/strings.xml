@@ -8,6 +8,7 @@
     <string name="settings">Settings</string>
     <string name="name_field">Enter Name</string>
     <string name="number_field">Enter Phone Number</string>
+    <string name="waiting_info">Waiting for \n safewalk \n status</string>
     <string-array name="pick_up_choices">
         <item>Wallace</item>
         <item>Doty</item>

@@ -49,6 +49,9 @@
             android:id="@+id/send"
             android:textColor="#FFFFFF"
             android:layout_gravity="center_horizontal"
+            android:background="@drawable/waiting"
+            android:textSize="22sp"
+            android:text="@string/waiting_info"
             android:onClick="sendClick"/>
     <Space
             android:layout_width="match_parent"

@@ -1,5 +1,7 @@
 package com.mac.SafeWalk;
 
+import android.*;
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -72,7 +74,12 @@ public class HomeScreenActivity extends Activity {
      * Accessed when "send" button is clicked. Retrieves data from EditText via retrieveLocation method.
      */
     public void sendClick(View view) {
-        if (swStatus.equals("yes")){
+        if (swStatus == null) {
+            AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
+            safewalkBusyDialog.setTitle("Safewalk is unreachable");
+            safewalkBusyDialog.setMessage("Unable to get Safewalk status. Check you internet connection.");
+            safewalkBusyDialog.show();
+        } else if (swStatus.equals("yes")){
             EditText customEdit = (EditText)findViewById(R.id.customLocationText);
             if (isCustom) {
                 Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
@@ -172,11 +179,11 @@ public class HomeScreenActivity extends Activity {
             sendButton.setText("Send");
             sendButton.setTextSize(36);
         } else if (status.equals("busy")){
-            sendButton.setBackgroundResource(R.drawable.busy);
+            sendButton.setBackgroundResource(R.drawable.busy_button);
             sendButton.setText("Busy");
             sendButton.setTextSize(36);
         } else {
-            sendButton.setBackgroundResource(R.drawable.not_available);
+            sendButton.setBackgroundResource(R.drawable.not_available_button);
             sendButton.setText("Not Available");
             sendButton.setTextSize(22);
         }

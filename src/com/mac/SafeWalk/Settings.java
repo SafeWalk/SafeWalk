@@ -13,7 +13,7 @@ public class Settings {
 
     private String pickUpLocation;
     private long lastSendTime = 0;
-    private final static String SAFEWALK_PHONE_NUMBER = ""; //"6512420083";  //Currently Kohei's number
+    private final static String SAFEWALK_PHONE_NUMBER = "6123237668"; //"6512420083";  //Currently Kohei's number
 
     // Phone and name data
     private SharedPreferences nameData;

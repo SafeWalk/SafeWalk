@@ -95,7 +95,7 @@ public class SendMessageActivity extends Activity {
     }
 
     /**
-     * Changes the fonts and color of the fonts
+     * Set fonts
      */
     private void setFontsAndText() {
         //Make font
