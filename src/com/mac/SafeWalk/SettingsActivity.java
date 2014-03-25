@@ -33,27 +33,16 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
     public void setupVariables(){
 
         Button save = (Button) findViewById(R.id.saveButton);
-        Button load = (Button) findViewById(R.id.loadButton);
-
         name = (EditText) findViewById(R.id.name);
         phone = (EditText) findViewById(R.id.number);
-        nameResult = (TextView) findViewById(R.id.displayName);
-        phoneResult = (TextView) findViewById(R.id.displayNumber);
-
         save.setOnClickListener(this);
-        load.setOnClickListener(this);
     }
 
     public void onClick(View view) {
-        switch ( (view.getId())){
+        switch ((view.getId())){
             case R.id.saveButton:
                 save();
                 break;
-
-            case R.id.loadButton:
-                load();
-                break;
-
         }
     }
 
@@ -69,16 +58,4 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
         phoneEditor.putString("sharedPhone", stringData2);
         phoneEditor.commit();
     }
-
-    public void load(){
-        //  Load Name and display
-        Settings.getSettings().setNameData(getSharedPreferences(Settings.getFilename(), 0));
-        String nameReturned = Settings.getSettings().getNameData().getString("sharedName", "Couldn't load data");
-        nameResult.setText("Your name is: " + nameReturned);
-        //  Load Phone Number and display
-        Settings.getSettings().setNameData(getSharedPreferences(Settings.getPhoneFile(), 0));
-        String numberReturned = Settings.getSettings().getNameData().getString("sharedPhone", "Couldn't load data");
-        phoneResult.setText("Your phone number is: " + numberReturned);
-    }
-
 }
