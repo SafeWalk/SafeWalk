@@ -23,9 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c581431a-d006-48d6-a772-02de439346d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mac/SafeWalk/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/mac/SafeWalk/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/HomeScreenActivity.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/HomeScreenActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mac/SafeWalk/SettingsActivity.java" afterPath="$PROJECT_DIR$/src/com/mac/SafeWalk/SettingsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/settings.xml" afterPath="$PROJECT_DIR$/res/layout/settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cbecbe45-bfe1-4818-9234-e246d21b89ab" name="Failed commit: Default" comment="&#10;k" />
@@ -115,10 +114,10 @@
       <file leaf-file-name="settings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="1464" selection-end="1464" vertical-scroll-proportion="-7.923077" vertical-offset="217" max-vertical-offset="748">
+            <state line="28" column="38" selection-start="1158" selection-end="1158" vertical-scroll-proportion="-5.0" vertical-offset="216" max-vertical-offset="765">
               <folding>
-                <element signature="e#1010#1031#0" expanded="true" />
-                <element signature="e#1309#1323#0" expanded="true" />
+                <element signature="e#1049#1070#0" expanded="true" />
+                <element signature="e#1348#1362#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,7 +129,7 @@
       <file leaf-file-name="SettingsActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SettingsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="39" selection-start="2171" selection-end="2171" vertical-scroll-proportion="0.7140411" vertical-offset="535" max-vertical-offset="1411">
+            <state line="52" column="104" selection-start="1605" selection-end="1605" vertical-scroll-proportion="0.5976027" vertical-offset="399" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -629,7 +628,7 @@
       <workItem from="1394688288854" duration="15619000" />
       <workItem from="1394931848533" duration="1939000" />
       <workItem from="1395685192086" duration="3801000" />
-      <workItem from="1395793774861" duration="1115000" />
+      <workItem from="1395793774861" duration="2205000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1392840706891</created>
@@ -683,11 +682,15 @@
       <created>1395021716661</created>
       <updated>1395021716661</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="SettingsActivity is launched if no personal info are stored.&#10;Goes directly to HomeScreenActivity when settings are saved.">
+      <created>1395795032266</created>
+      <updated>1395795032266</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79059000" />
+    <option name="totallyTimeSpent" value="80149000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -802,7 +805,8 @@
     <MESSAGE value="Added the three button functionality and each button does something different&#10;" />
     <MESSAGE value="Require telephony hardware" />
     <MESSAGE value="Added the grey button we talked about in class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the grey button we talked about in class" />
+    <MESSAGE value="SettingsActivity is launched if no personal info are stored.&#10;Goes directly to HomeScreenActivity when settings are saved." />
+    <option name="LAST_COMMIT_MESSAGE" value="SettingsActivity is launched if no personal info are stored.&#10;Goes directly to HomeScreenActivity when settings are saved." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -833,8 +837,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="42" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1156">
           <folding>
-            <element signature="e#1010#1031#0" expanded="true" />
-            <element signature="e#1309#1323#0" expanded="true" />
+            <element signature="e#1049#1070#0" expanded="true" />
+            <element signature="e#1348#1362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1185,10 +1189,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1464" selection-end="1464" vertical-scroll-proportion="-7.923077" vertical-offset="217" max-vertical-offset="748">
+        <state line="28" column="38" selection-start="1158" selection-end="1158" vertical-scroll-proportion="-5.0" vertical-offset="216" max-vertical-offset="765">
           <folding>
-            <element signature="e#1010#1031#0" expanded="true" />
-            <element signature="e#1309#1323#0" expanded="true" />
+            <element signature="e#1049#1070#0" expanded="true" />
+            <element signature="e#1348#1362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1198,7 +1202,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mac/SafeWalk/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="39" selection-start="2171" selection-end="2171" vertical-scroll-proportion="0.7140411" vertical-offset="535" max-vertical-offset="1411">
+        <state line="52" column="104" selection-start="1605" selection-end="1605" vertical-scroll-proportion="0.5976027" vertical-offset="399" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>

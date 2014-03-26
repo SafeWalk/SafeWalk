@@ -46,16 +46,19 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
     }
 
     public void save(){
-        //  Save name
+        //  Save name (if valid name)
         String stringData1 = name.getText().toString();
-        SharedPreferences.Editor nameEditor = Settings.getSettings().getNameData().edit();
-        nameEditor.putString("sharedName", stringData1);
-        nameEditor.commit();
+        if (stringData1.equals("")){
+            Toast.makeText(getApplicationContext(), "Please enter your name", Toast.LENGTH_LONG).show();
+        } else {
+            SharedPreferences.Editor nameEditor = Settings.getSettings().getNameData().edit();
+            nameEditor.putString("sharedName", stringData1);
+            nameEditor.commit();
+        }
 
         //  Save phone number (if valid number)
-        // need to add no more then 10 in length
         String stringData2 = phone.getText().toString();
-        if ((verifyInt(stringData2))){
+        if (stringData2.length()==10){
             SharedPreferences.Editor phoneEditor = Settings.getSettings().getPhoneData().edit();
             phoneEditor.putString("sharedPhone", stringData2);
             phoneEditor.commit();
@@ -70,16 +73,5 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(), "Invalid phone number", Toast.LENGTH_LONG).show();
 
         }
-    }
-
-    //    Verify if the input is a integer
-    public boolean verifyInt(String s){
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-
     }
 }

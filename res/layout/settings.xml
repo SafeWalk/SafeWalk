@@ -23,6 +23,7 @@
             android:id="@+id/number"
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
+            android:inputType="number"
             android:hint="@string/number_hint"
             android:layout_alignLeft="@+id/name"
             android:layout_below="@id/name"
