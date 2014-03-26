@@ -29,13 +29,21 @@ public class HomeScreenActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        // set up locationSpinner
-        Spinner locationSpinner = setSpinner();
-        onSelectedInSpinner(locationSpinner);
-        sendButton = (Button) findViewById(R.id.send);
-        checkAvailability();
-        setFonts();
+//        If no name and phone number saved, go to settingsActivity
+        String name = loadName();
+        String phoneNumber = loadNumber();
+        if (name.equals("No name") && phoneNumber.equals("No number")){
+            Intent settings = new Intent(this, SettingsActivity.class);
+            startActivity(settings);
+        } else {
+            setContentView(R.layout.main);
+            // set up locationSpinner
+            Spinner locationSpinner = setSpinner();
+            onSelectedInSpinner(locationSpinner);
+            sendButton = (Button) findViewById(R.id.send);
+            checkAvailability();
+            setFonts();
+        }
     }
 
     /**
@@ -167,6 +175,20 @@ public class HomeScreenActivity extends Activity {
         otherAddress.setTypeface(quicksandBold);
         sendButton.setTypeface(quicksand);
 
+    }
+
+//    Load Shared Preferences
+    public String loadName(){
+        //  Load Name
+        Settings.getSettings().setNameData(getSharedPreferences(Settings.getFilename(), 0));
+        String nameReturned = Settings.getSettings().getNameData().getString("sharedName", "No name");
+        return nameReturned;
+    }
+    public String loadNumber(){
+        //  Load Phone Number
+        Settings.getSettings().setNameData(getSharedPreferences(Settings.getPhoneFile(), 0));
+        String numberReturned = Settings.getSettings().getNameData().getString("sharedPhone", "No number");
+        return numberReturned;
     }
 
     /**

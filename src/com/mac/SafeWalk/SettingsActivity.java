@@ -1,21 +1,20 @@
 package com.mac.SafeWalk;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
 
     private EditText name;
     private EditText phone;
-    private TextView nameResult;
-    private TextView phoneResult;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,15 +46,32 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
     }
 
     public void save(){
-        //  Save name
+        //  Save name (if valid name)
         String stringData1 = name.getText().toString();
-        SharedPreferences.Editor nameEditor = Settings.getSettings().getNameData().edit();
-        nameEditor.putString("sharedName", stringData1);
-        nameEditor.commit();
-        //  Save phone number
+        if (stringData1.equals("")){
+            Toast.makeText(getApplicationContext(), "Please enter your name", Toast.LENGTH_LONG).show();
+        } else {
+            SharedPreferences.Editor nameEditor = Settings.getSettings().getNameData().edit();
+            nameEditor.putString("sharedName", stringData1);
+            nameEditor.commit();
+        }
+
+        //  Save phone number (if valid number)
         String stringData2 = phone.getText().toString();
-        SharedPreferences.Editor phoneEditor = Settings.getSettings().getPhoneData().edit();
-        phoneEditor.putString("sharedPhone", stringData2);
-        phoneEditor.commit();
+        if (stringData2.length()==10){
+            SharedPreferences.Editor phoneEditor = Settings.getSettings().getPhoneData().edit();
+            phoneEditor.putString("sharedPhone", stringData2);
+            phoneEditor.commit();
+
+//            Go back to main activity if the data is saved
+            Intent homeScreen = new Intent(this, HomeScreenActivity.class);
+            startActivity(homeScreen);
+//            Display a message
+            Toast.makeText(getApplicationContext(), "Your settings have been successfully saved", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Invalid phone number", Toast.LENGTH_LONG).show();
+
+        }
     }
 }
