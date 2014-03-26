@@ -1,7 +1,5 @@
 package com.mac.SafeWalk;
 
-import android.*;
-import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -88,12 +86,19 @@ public class HomeScreenActivity extends Activity {
             safewalkBusyDialog.setMessage("Unable to get Safewalk status. Check you internet connection.");
             safewalkBusyDialog.show();
         } else if (swStatus.equals("yes")){
-            EditText customEdit = (EditText)findViewById(R.id.customLocationText);
-            if (isCustom) {
-                Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
-            }
+            EditText customEdit = (EditText) findViewById(R.id.customLocationText);
             Intent intent = new Intent(this, SendMessageActivity.class);
-            startActivity(intent);
+            if (retrieveLocation(customEdit).equals("")) {
+                AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
+                emptyLocationAlert.setTitle("Empty Location");
+                emptyLocationAlert.setMessage("You must imput a valid pickup location");
+                emptyLocationAlert.show();
+            } else if (isCustom) {
+                Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
+                startActivity(intent);
+            } else {
+                startActivity(intent);
+            }
         } else if (swStatus.equals("busy")){
             AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
             safewalkBusyDialog.setTitle("Safewalk is busy");
@@ -151,6 +156,7 @@ public class HomeScreenActivity extends Activity {
                     // Otherwise the pick-up location is whatever the user chooses from spinner.
                     Settings.getSettings().setPickUpLocation(parent.getItemAtPosition(position).toString());
                     customEdit.setVisibility(View.INVISIBLE);
+                    isCustom = false;
                 }
             }
             // Leave this method; this has to be here.
