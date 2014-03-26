@@ -88,7 +88,7 @@ public class HomeScreenActivity extends Activity {
         } else if (swStatus.equals("yes")){
             EditText customEdit = (EditText) findViewById(R.id.customLocationText);
             Intent intent = new Intent(this, SendMessageActivity.class);
-            if (retrieveLocation(customEdit).equals("")) {
+            if (retrieveLocation(customEdit).equals("") && isCustom) {
                 AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
                 emptyLocationAlert.setTitle("Empty Location");
                 emptyLocationAlert.setMessage("You must imput a valid pickup location");

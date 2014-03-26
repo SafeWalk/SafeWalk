@@ -28,7 +28,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
     //  Introduce all the variables used in the activity and link it to the layout button
     public void setupVariables(){
-
         Button save = (Button) findViewById(R.id.saveButton);
         name = (EditText) findViewById(R.id.name);
         phone = (EditText) findViewById(R.id.number);
@@ -36,14 +35,6 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
     }
 
     public void onClick(View view) {
-        switch ((view.getId())){
-            case R.id.saveButton:
-                save();
-                break;
-        }
-    }
-
-    public void save(){
         //  Save name (if valid name)
         String stringData1 = name.getText().toString();
         if (stringData1.equals("")){
@@ -56,7 +47,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
         //  Save phone number (if valid number)
         String stringData2 = phone.getText().toString();
-        if (stringData2.length()==10){
+        if (stringData2.length() == 10){
             SharedPreferences.Editor phoneEditor = Settings.getSettings().getPhoneData().edit();
             phoneEditor.putString("sharedPhone", stringData2);
             phoneEditor.commit();
