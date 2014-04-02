@@ -44,8 +44,7 @@ public class GPSFeature {
     Gets the location by first retrieving the coordinates and then doing reverse geocoding.
      */
     public Location getLocation(LocationClient locationClient) {
-        Location location = locationClient.getLastLocation();
-        return location;
+        return locationClient.getLastLocation();
     }
 
     /*

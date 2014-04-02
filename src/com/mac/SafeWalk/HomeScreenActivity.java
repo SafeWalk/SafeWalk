@@ -2,6 +2,7 @@ package com.mac.SafeWalk;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.location.Location;
@@ -30,12 +31,11 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     private String swStatus;
 
     // Location vars
-    LocationClient mLocationClient;
+    private LocationClient mLocationClient;
 
     // GPS stuff
-    private Button gpsButton;
     private TextView gpsText;
-    GPSFeature gpsFeature;
+    private GPSFeature gpsFeature;
 
 
     @Override
@@ -58,23 +58,15 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         }
 
         // TESTING TESTING TESTING
-        gpsButton = (Button) findViewById(R.id.GPSButton);
         gpsText = (TextView) findViewById(R.id.GPSText);
 
         // set up locationClient
         mLocationClient = new LocationClient(this, this, this);
-
         gpsFeature = new GPSFeature();
+    }
 
-        gpsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-        public void onClick(View v) {
-                doGPS();
-                //gpsText.setText("This is working");
-            }
-        });
-
-
+    public void gpsClick(View view) {
+        doGPS();
     }
 
     @Override
