@@ -69,8 +69,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         gpsButton.setOnClickListener(new View.OnClickListener() {
             @Override
         public void onClick(View v) {
-                //doGPS();
-                gpsText.setText("This is working");
+                doGPS();
+                //gpsText.setText("This is working");
             }
         });
 
@@ -163,7 +163,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             if (retrieveLocation(customEdit).equals("") && isCustom) {
                 AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
                 emptyLocationAlert.setTitle("Empty Location");
-                emptyLocationAlert.setMessage("You must imput a valid pickup location");
+                emptyLocationAlert.setMessage("You must input a valid pickup location");
                 emptyLocationAlert.show();
             } else if (isCustom) {
                 Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
