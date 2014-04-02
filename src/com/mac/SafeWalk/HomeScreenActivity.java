@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,17 +13,30 @@ import com.firebase.client.Firebase;
 import com.firebase.client.ValueEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.FirebaseError;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.location.LocationClient;
 
 /**
  *
  */
-public class HomeScreenActivity extends Activity {
+public class HomeScreenActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks,
+        GooglePlayServicesClient.OnConnectionFailedListener {
 
 
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
     private Button sendButton;
     private String swStatus;
+
+    // Location vars
+    LocationClient mLocationClient;
+
+    // GPS stuff
+    private Button gpsButton;
+    private TextView gpsText;
+    GPSFeature gpsFeature;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +56,65 @@ public class HomeScreenActivity extends Activity {
             checkAvailability();
             setFonts();
         }
+
+        // TESTING TESTING TESTING
+        gpsButton = (Button) findViewById(R.id.GPSButton);
+        gpsText = (TextView) findViewById(R.id.GPSText);
+
+        // set up locationClient
+        mLocationClient = new LocationClient(this, this, this);
+
+        gpsFeature = new GPSFeature();
+
+        gpsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+        public void onClick(View v) {
+                //doGPS();
+                gpsText.setText("This is working");
+            }
+        });
+
+
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mLocationClient.connect();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDisconnected() {
+        Toast.makeText(this, "Disconnected. Please re-connect.",
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        Toast.makeText(this, "Connection Failure : " +
+                connectionResult.getErrorCode(),
+                Toast.LENGTH_LONG).show();
+    }
+
+    public void doGPS() {
+        Location currentLocation = gpsFeature.getLocation(mLocationClient);
+        // Set address
+        gpsFeature.getAddress(currentLocation, this);
+        String address = gpsFeature.mAddress;
+        gpsText.setText(address);
+    }
+
+
 
     /**
      * Checks the availability of Safewalk though Firebase

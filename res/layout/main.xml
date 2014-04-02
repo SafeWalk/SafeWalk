@@ -19,6 +19,21 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"/>
 
+    <!-- Displays GPS location: For TESTING purposes-->
+    <TextView
+            android:id="@+id/GPSText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"/>
+
+    <!-- GPS button: for TESTING purposes-->
+    <Button
+            android:id="@+id/GPSButton"
+            android:layout_below="@+id/GPSText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPS"/>
+
     <Spinner
             android:layout_width="200dp"
             android:layout_height="wrap_content"
