@@ -2,10 +2,14 @@ package com.mac.SafeWalk;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +21,11 @@ import com.firebase.client.FirebaseError;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
+import com.mac.SafeWalk.GPSFeature;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 /**
  *
@@ -32,10 +41,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     // Location vars
     private LocationClient mLocationClient;
+    private Location mCurrentLocation;
+
 
     // GPS stuff
     private TextView gpsText;
-    private GPSFeature gpsFeature;
+    private TextView locationText;
+    private String mAddress;
 
 
     @Override
@@ -59,52 +71,14 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
         // TESTING TESTING TESTING
         gpsText = (TextView) findViewById(R.id.GPSText);
+        locationText = (TextView) findViewById(R.id.locationText);
 
         // set up locationClient
         mLocationClient = new LocationClient(this, this, this);
-        gpsFeature = new GPSFeature();
+
     }
 
-    public void gpsClick(View view) {
-        doGPS();
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mLocationClient.connect();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onDisconnected() {
-        Toast.makeText(this, "Disconnected. Please re-connect.",
-                Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        Toast.makeText(this, "Connection Failure : " +
-                connectionResult.getErrorCode(),
-                Toast.LENGTH_LONG).show();
-    }
-
-    public void doGPS() {
-        Location currentLocation = gpsFeature.getLocation(mLocationClient);
-        // Set address
-        gpsFeature.getAddress(currentLocation, this);
-        String address = gpsFeature.mAddress;
-        gpsText.setText(address);
-    }
 
 
 
@@ -280,5 +254,135 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             sendButton.setTextSize(22);
         }
     }
+
+
+    //----------------- GPS STUFF --------------------------------------
+
+    public void locationClick(View view) {
+        mCurrentLocation = getLocation(mLocationClient);
+        Double lat = mCurrentLocation.getLatitude();
+        Double lng = mCurrentLocation.getLongitude();
+        locationText.setText(lat.toString() + " " + lng.toString());
+    }
+
+    public void gpsClick(View view) {
+        mCurrentLocation = getLocation(mLocationClient);
+        getAddress(mCurrentLocation, this);
+        gpsText.setText(mAddress);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mLocationClient.connect();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDisconnected() {
+        Toast.makeText(this, "Disconnected. Please re-connect.",
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        Toast.makeText(this, "Connection Failure : " +
+                connectionResult.getErrorCode(),
+                Toast.LENGTH_LONG).show();
+    }
+
+
+    public Location getLocation(LocationClient locationClient) {
+        return locationClient.getLastLocation();
+    }
+
+    public void getAddress(Location location, Context context) {
+        (new GetAddressTask(context)).execute(location);
+    }
+
+    /*
+    Subclass of AsyncTask used to get the address given the latitude and the longitude.
+     */
+    private class GetAddressTask extends AsyncTask<Location, Void, String> {
+
+        Context mContext;
+
+        /*
+        Constructor
+         */
+        public GetAddressTask(Context context) {
+            super();
+            mContext = context;
+        }
+
+        /*
+        Do task in background so there is no interruption.
+         */
+        @Override
+        protected String doInBackground(Location... params) {
+
+            // Set up geocoder
+            Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+
+            // Get current location from parameter list
+            Location location = params[0];
+
+            //Create a list to contain the result address
+            List<Address> addresses = null;
+            try {
+                addresses = geocoder.getFromLocation(location.getLatitude(),
+                        location.getLongitude(), 1);
+            } catch (IOException e1) {
+                Log.e("GPS Feature", "IO Exception in getFromLocation");
+            } catch (IllegalArgumentException e2) {
+                String errorString = "Illegal arguments " +
+                        Double.toString(location.getLatitude()) +
+                        " , " +
+                        Double.toString(location.getLongitude()) +
+                        " passed to address services";
+                Log.e("GPS Feature" , errorString);
+                e2.printStackTrace();
+                return errorString;
+            }
+
+            // Check if geocode returned an address
+            if (addresses != null && addresses.size() > 0) {
+                // Get first address from list
+                Address address = addresses.get(0);
+
+                // Format the address
+                String addressText = String.format(
+                        "%s, %s, %s",
+                        address.getMaxAddressLineIndex() > 0 ?
+                                address.getAddressLine(0) : "",
+                        address.getLocality(),
+                        address.getCountryName());
+                return addressText;
+            } else {
+                return "No address found";
+            }
+        }
+
+        /*
+        Method is called after the task is finished.
+         */
+        @Override
+        protected void onPostExecute(String address) {
+            mAddress = address;
+        }
+    }
+
+
+
+
 
 }

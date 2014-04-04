@@ -19,17 +19,32 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"/>
 
+    <!-- Displays coordinates: For TESTING purposes-->
+    <TextView
+            android:id="@+id/locationText"
+            android:layout_below="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     <!-- Displays GPS location: For TESTING purposes-->
     <TextView
             android:id="@+id/GPSText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"/>
+            android:layout_below="@+id/locationText"/>
 
-    <!-- GPS button: for TESTING purposes-->
+    <!-- Location button: for TESTING purposes-->
+    <Button
+            android:id="@+id/locationButton"
+            android:text="Location"
+            android:layout_below="@+id/GPSText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="locationClick"/>
+    <!-- GPS button: For TESTING purposes-->
     <Button
             android:id="@+id/GPSButton"
-            android:layout_below="@+id/GPSText"
+            android:layout_below="@+id/locationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="gpsClick"
