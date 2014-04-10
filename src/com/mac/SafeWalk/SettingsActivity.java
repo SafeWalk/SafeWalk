@@ -45,22 +45,33 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
             nameEditor.commit();
         }
 
+
         //  Save phone number (if valid number)
         String stringData2 = phone.getText().toString();
-        if (stringData2.length() == 10){
+        if (stringData2.length()==10){
             SharedPreferences.Editor phoneEditor = Settings.getSettings().getPhoneData().edit();
             phoneEditor.putString("sharedPhone", stringData2);
             phoneEditor.commit();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Invalid phone number", Toast.LENGTH_LONG).show();
+        }
 
+        if (checkForName(stringData1) && stringData2.length()==10){
 //            Go back to main activity if the data is saved
             Intent homeScreen = new Intent(this, HomeScreenActivity.class);
             startActivity(homeScreen);
 //            Display a message
             Toast.makeText(getApplicationContext(), "Your settings have been successfully saved", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(getApplicationContext(), "Invalid phone number", Toast.LENGTH_LONG).show();
+    }
 
+    //    Return false if no name is entered
+    public boolean checkForName (String s){
+        if (s.equals("")){
+            return false;
+        } else {
+            return true;
         }
     }
 }
