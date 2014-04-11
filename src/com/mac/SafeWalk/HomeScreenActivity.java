@@ -57,8 +57,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         String name = loadName();
         String phoneNumber = loadNumber();
         if (name.equals("No name") && phoneNumber.equals("No number")){
-            Intent settings = new Intent(this, SettingsActivity.class);
-            startActivity(settings);
+            Intent welcome = new Intent(this, WelcomeActivity.class);
+            startActivity(welcome);
         } else {
             setContentView(R.layout.main);
             // set up locationSpinner
