@@ -71,7 +71,7 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
 
         // Set up action bar.
         final ActionBar actionBar = getActionBar();
-//        actionBar.hide();
+        actionBar.hide();
 
         // Specify that the Home/Up button should not be enabled, since there is
         // no hierarchical parent.

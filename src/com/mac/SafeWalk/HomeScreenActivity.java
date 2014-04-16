@@ -209,15 +209,14 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
      */
     private void setFonts() {
         //Make fonts from assets
-        Typeface quicksand = Typeface.createFromAsset(getAssets(), "fonts/quicksand.otf");
-        Typeface quicksandBold = Typeface.createFromAsset(getAssets(), "fonts/quicksand_bold.otf");
+        Settings.getSettings().setContext(this);
         //Get Views
         TextView title = (TextView) findViewById(R.id.title);
         TextView otherAddress = (TextView) findViewById(R.id.customLocationText);
         //Set Fonts
-        title.setTypeface(quicksand);
-        otherAddress.setTypeface(quicksandBold);
-        sendButton.setTypeface(quicksand);
+        title.setTypeface(Settings.getSettings().getQuicksand());
+        otherAddress.setTypeface(Settings.getSettings().getQuicksandBold());
+        sendButton.setTypeface(Settings.getSettings().getQuicksand());
 
     }
 

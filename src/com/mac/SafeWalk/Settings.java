@@ -1,6 +1,8 @@
 package com.mac.SafeWalk;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 
 /**
  * Utilities class that keeps track of global variables. It is a singleton so there
@@ -9,7 +11,7 @@ import android.content.SharedPreferences;
 public class Settings {
 
     private static final Settings settings = new Settings();
-
+    private Context context;
 
     private String pickUpLocation;
     private long lastSendTime = 0;
@@ -71,5 +73,17 @@ public class Settings {
 
     public void setLastSendTime(long lastSendTime) {
         this.lastSendTime = lastSendTime;
+    }
+
+    public Typeface getQuicksand() {
+        return Typeface.createFromAsset(context.getAssets(), "fonts/quicksand.otf");
+    }
+
+    public Typeface getQuicksandBold() {
+        return Typeface.createFromAsset(context.getAssets(), "fonts/quicksand_bold.otf");
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 }

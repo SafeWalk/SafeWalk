@@ -35,6 +35,9 @@
             android:text="@string/Save"
             android:id="@+id/saveButton"
             android:layout_below="@id/number"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/save"/>
 
 </RelativeLayout>

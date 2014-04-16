@@ -13,6 +13,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
     private EditText name;
     private EditText phone;
+    private Button save;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,11 +25,20 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
         Settings.getSettings().setNameData(getSharedPreferences(Settings.getFilename(), 0));
         Settings.getSettings().setPhoneData(getSharedPreferences(Settings.getPhoneFile(), 0));
 
+        setFonts();
+
+    }
+
+    private void setFonts() {
+        Settings.getSettings().setContext(this);
+        name.setTypeface(Settings.getSettings().getQuicksandBold());
+        phone.setTypeface(Settings.getSettings().getQuicksandBold());
+        save.setTypeface(Settings.getSettings().getQuicksand());
     }
 
     //  Introduce all the variables used in the activity and link it to the layout button
     public void setupVariables(){
-        Button save = (Button) findViewById(R.id.saveButton);
+        save = (Button) findViewById(R.id.saveButton);
         name = (EditText) findViewById(R.id.name);
         phone = (EditText) findViewById(R.id.number);
         save.setOnClickListener(this);

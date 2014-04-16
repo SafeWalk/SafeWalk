@@ -99,15 +99,15 @@ public class SendMessageActivity extends Activity {
      */
     private void setFontsAndText() {
         //Make font
-        Typeface quicksand = Typeface.createFromAsset(getAssets(), "fonts/quicksand.otf");
+        Settings.getSettings().setContext(this);
         //Get Views
         TextView locationDisplay = (TextView) findViewById(R.id.location);
         TextView topMessage = (TextView) findViewById(R.id.safewalk_notified);
         Button callButton = (Button) findViewById(R.id.call_safewalk);
         //Set fonts
-        locationDisplay.setTypeface(quicksand);
-        topMessage.setTypeface(quicksand);
-        callButton.setTypeface(quicksand);
+        locationDisplay.setTypeface(Settings.getSettings().getQuicksand());
+        topMessage.setTypeface(Settings.getSettings().getQuicksand());
+        callButton.setTypeface(Settings.getSettings().getQuicksand());
         //Set text (pick up location)
         locationDisplay.setText(Settings.getSettings().getPickUpLocation());
     }
