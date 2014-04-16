@@ -12,28 +12,11 @@
     <string name="name_hint">Enter your name</string>
     <string name="number_hint">Enter your number</string>
     <string name="Save">Save</string>
-    <string-array name="pick_up_choices">
-        <item>Wallace</item>
-        <item>Doty</item>
-        <item>Turck</item>
-        <item>Dupre</item>
-        <item>Campus Center</item>
-        <item>Library</item>
-        <item>Old Main</item>
-        <item>Janet Wallace</item>
-        <item>Olin Rice</item>
-        <item>Stadium</item>
-        <item>Carnegie</item>
-        <item>30 Mac</item>
-        <item>77 Mac</item>
-        <item>Neil Hall</item>
-        <item>Other</item>
-        <!-- We need to complete this list -->
-    </string-array>
 
     <!--Welcome screen tab labels -->
     <string name="label_tab1">Logo</string>
     <string name="label_tab2">About Us</string>
     <string name="label_tab3">Getting Started</string>
+    <string name="gps">GPS</string>
 
 </resources>

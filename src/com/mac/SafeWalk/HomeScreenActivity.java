@@ -12,6 +12,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
 import com.firebase.client.Firebase;
@@ -165,12 +166,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
      */
     private Spinner setSpinner(){
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.pick_up_choices,
-                android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        LayoutInflater inflater = getLayoutInflater();
+        spinner.setAdapter(new SafewalkArrayAdapter(this, R.layout.spinner_style, Settings.getSettings().swLocations(), inflater));
         return spinner;
     }
 

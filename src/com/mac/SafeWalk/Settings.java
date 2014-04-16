@@ -16,6 +16,9 @@ public class Settings {
     private String pickUpLocation;
     private long lastSendTime = 0;
     private final static String SAFEWALK_PHONE_NUMBER = "6123237668"; //"6512420083";  //Currently Kohei's number
+    private String[] swLocations = {"Wallace", "Doty", "Wallace", "Doty", "Turck", "Dupre", "Campus Center", "Library",
+                                    "Old Main", "Janet Wallace", "Olin Rice", "Stadium", "Carnegie", "30 Mac",
+                                     "77 Mac", "Neil Hall", "Other"};
 
     // Phone and name data
     private SharedPreferences nameData;
@@ -85,5 +88,9 @@ public class Settings {
 
     public void setContext(Context context) {
         this.context = context;
+    }
+
+    public String[] swLocations() {
+        return swLocations;
     }
 }
