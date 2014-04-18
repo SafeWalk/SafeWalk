@@ -3,30 +3,20 @@ package com.mac.SafeWalk;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
-import com.firebase.client.Firebase;
-import com.firebase.client.ValueEventListener;
 import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
-import com.mac.SafeWalk.GPSFeature;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
 
 /**
  *
@@ -124,7 +114,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             safewalkBusyDialog.setTitle("Safewalk is unreachable");
             safewalkBusyDialog.setMessage("Unable to get Safewalk status. Check you internet connection.");
             safewalkBusyDialog.show();
-        } else if (swStatus.equals("yes")){
+        } else if (swStatus.equals("Available")){
             EditText customEdit = (EditText) findViewById(R.id.customLocationText);
             Intent intent = new Intent(this, SendMessageActivity.class);
             if (retrieveLocation(customEdit).equals("") && isCustom) {
@@ -138,7 +128,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             } else {
                 startActivity(intent);
             }
-        } else if (swStatus.equals("busy")){
+        } else if (swStatus.equals("Busy")){
             AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
             safewalkBusyDialog.setTitle("Safewalk is busy");
             safewalkBusyDialog.setMessage("We're sorry, all our workers are currently busy");
@@ -236,11 +226,11 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
      * @param status String containing the status of Safewalk in real time
      */
     private void setSendButton(String status) {
-        if (status.equals("yes")){
+        if (status.equals("Available")){
             sendButton.setBackgroundResource(R.drawable.available_button);
             sendButton.setText("Send");
             sendButton.setTextSize(36);
-        } else if (status.equals("busy")){
+        } else if (status.equals("Busy")){
             sendButton.setBackgroundResource(R.drawable.busy_button);
             sendButton.setText("Busy");
             sendButton.setTextSize(36);
@@ -264,7 +254,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     public void gpsClick(View view) {
         mCurrentLocation = getLocation(mLocationClient);
         getAddress(mCurrentLocation, this);
-        gpsText.setText(mAddress);
+        gpsText.setText(Settings.getSettings().getPickUpLocation());
     }
 
     @Override
@@ -304,81 +294,4 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     public void getAddress(Location location, Context context) {
         (new GetAddressTask(context)).execute(location);
     }
-
-    /*
-    Subclass of AsyncTask used to get the address given the latitude and the longitude.
-     */
-    private class GetAddressTask extends AsyncTask<Location, Void, String> {
-
-        Context mContext;
-
-        /*
-        Constructor
-         */
-        public GetAddressTask(Context context) {
-            super();
-            mContext = context;
-        }
-
-        /*
-        Do task in background so there is no interruption.
-         */
-        @Override
-        protected String doInBackground(Location... params) {
-
-            // Set up geocoder
-            Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
-
-            // Get current location from parameter list
-            Location location = params[0];
-
-            //Create a list to contain the result address
-            List<Address> addresses = null;
-            try {
-                addresses = geocoder.getFromLocation(location.getLatitude(),
-                        location.getLongitude(), 1);
-            } catch (IOException e1) {
-                Log.e("GPS Feature", "IO Exception in getFromLocation");
-            } catch (IllegalArgumentException e2) {
-                String errorString = "Illegal arguments " +
-                        Double.toString(location.getLatitude()) +
-                        " , " +
-                        Double.toString(location.getLongitude()) +
-                        " passed to address services";
-                Log.e("GPS Feature" , errorString);
-                e2.printStackTrace();
-                return errorString;
-            }
-
-            // Check if geocode returned an address
-            if (addresses != null && addresses.size() > 0) {
-                // Get first address from list
-                Address address = addresses.get(0);
-
-                // Format the address
-                String addressText = String.format(
-                        "%s, %s, %s",
-                        address.getMaxAddressLineIndex() > 0 ?
-                                address.getAddressLine(0) : "",
-                        address.getLocality(),
-                        address.getCountryName());
-                return addressText;
-            } else {
-                return "No address found";
-            }
-        }
-
-        /*
-        Method is called after the task is finished.
-         */
-        @Override
-        protected void onPostExecute(String address) {
-            mAddress = address;
-        }
-    }
-
-
-
-
-
 }

@@ -10,7 +10,7 @@ import android.graphics.Typeface;
  */
 public class Settings {
 
-    private static final Settings settings = new Settings();
+    private static final Settings settings = new Settings(); //singleton
     private Context context;
 
     private String pickUpLocation;

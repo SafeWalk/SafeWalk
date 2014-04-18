@@ -3,7 +3,6 @@ package com.mac.SafeWalk;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -12,12 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * This activity sends the SMS to a predetermined SafeWalk number
  */
 public class SendMessageActivity extends Activity {
 
-    private static final long WAIT_TIME = 10000;
+    private static final long WAIT_TIME = 600000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,9 +49,10 @@ public class SendMessageActivity extends Activity {
      * number of messages in a given time.
      */
     private void notifyTimeLimit() {
+        long timeBetweenAttempts = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - (Settings.getSettings().getLastSendTime()));
         AlertDialog timeLimitDialog = new AlertDialog.Builder(this).create();
-        timeLimitDialog.setTitle("Message limit reached");
-        timeLimitDialog.setMessage("You can only send one message every 10 seconds");
+        timeLimitDialog.setTitle("Unable to send message");
+        timeLimitDialog.setMessage("Safewalk was notified " + timeBetweenAttempts + " minutes ago to pick you up.");
         timeLimitDialog.show();
     }
 
