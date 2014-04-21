@@ -3,6 +3,7 @@ package com.mac.SafeWalk;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -18,11 +19,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class SendMessageActivity extends Activity {
 
-    private static final long WAIT_TIME = 600000;
+    private static final long WAIT_TIME = 30000; // in milliseconds
+    private static final String LAST_TIME = "lastSendTime";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Settings.getSettings().setLastSendTimeEditor(getSharedPreferences(LAST_TIME, 0));
         setContentView(R.layout.message_sent);
         setFontsAndText();
         // Sends SMS to provided phone number.
@@ -34,12 +37,16 @@ public class SendMessageActivity extends Activity {
      * The waiting time is given by the constant WAIT_TIME in milliseconds
      */
     private void checkTimeBeforeSend() {
-        if (Settings.getSettings().getLastSendTime() <= System.currentTimeMillis() - WAIT_TIME) {
+        SharedPreferences.Editor lastSendTimeEditor;
+        long lastSendTime = getSharedPreferences("lastSendTime", 0).getLong(LAST_TIME, -1);
+        if (lastSendTime <= System.currentTimeMillis() - WAIT_TIME) {
             Log.w("sent", "MESSAGE SENT");
             sendSms(Settings.getSafewalkPhoneNumber());
-            Settings.getSettings().setLastSendTime(System.currentTimeMillis());
+            lastSendTimeEditor = Settings.getSettings().getLastSendTimeEditor().edit();
+            lastSendTimeEditor.putLong("lastSendTime", System.currentTimeMillis());
+            lastSendTimeEditor.commit();
         } else {
-            notifyTimeLimit();
+            notifyTimeLimit(lastSendTime);
             Log.w("sent", "MESSAGE NOT SENT");
         }
     }
@@ -48,8 +55,8 @@ public class SendMessageActivity extends Activity {
      * This method creates a warning dialog to let the user know they have reached the maximum
      * number of messages in a given time.
      */
-    private void notifyTimeLimit() {
-        long timeBetweenAttempts = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - (Settings.getSettings().getLastSendTime()));
+    private void notifyTimeLimit(long lastSendTime) {
+        long timeBetweenAttempts = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - lastSendTime);
         AlertDialog timeLimitDialog = new AlertDialog.Builder(this).create();
         timeLimitDialog.setTitle("Unable to send message");
         timeLimitDialog.setMessage("Safewalk was notified " + timeBetweenAttempts + " minutes ago to pick you up.");
@@ -112,6 +119,7 @@ public class SendMessageActivity extends Activity {
         callButton.setTypeface(Settings.getSettings().getQuicksand());
         //Set text (pick up location)
         locationDisplay.setText(Settings.getSettings().getPickUpLocation());
+
     }
 
 }

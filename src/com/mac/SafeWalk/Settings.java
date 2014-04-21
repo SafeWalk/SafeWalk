@@ -14,21 +14,19 @@ public class Settings {
     private Context context;
 
     private String pickUpLocation;
-    private long lastSendTime = 0;
     private final static String SAFEWALK_PHONE_NUMBER = "6123237668"; //"6512420083";  //Currently Kohei's number
-    private String[] swLocations = {"Wallace", "Doty", "Wallace", "Doty", "Turck", "Dupre", "Campus Center", "Library",
+    private String[] swLocations = {"Select", "Other", "Wallace", "Doty", "Wallace", "Doty", "Turck", "Dupre", "Campus Center", "Library",
                                     "Old Main", "Janet Wallace", "Olin Rice", "Stadium", "Carnegie", "30 Mac",
-                                     "77 Mac", "Neil Hall", "Other"};
+                                     "77 Mac", "Neil Hall"};
 
     // Phone and name data
     private SharedPreferences nameData;
     private SharedPreferences phoneData;
+    private SharedPreferences lastSendTimeEditor;
 
     // Where to save the name and phone data
     private static String filename = "MyName";
     private static String phoneFile = "MyPhoneNumber";
-
-    private void Settings() {}
 
     public static Settings getSettings() {
         return settings;
@@ -70,14 +68,6 @@ public class Settings {
         return phoneFile;
     }
 
-    public long getLastSendTime() {
-        return lastSendTime;
-    }
-
-    public void setLastSendTime(long lastSendTime) {
-        this.lastSendTime = lastSendTime;
-    }
-
     public Typeface getQuicksand() {
         return Typeface.createFromAsset(context.getAssets(), "fonts/quicksand.otf");
     }
@@ -92,5 +82,13 @@ public class Settings {
 
     public String[] swLocations() {
         return swLocations;
+    }
+
+    public SharedPreferences getLastSendTimeEditor() {
+        return this.lastSendTimeEditor;
+    }
+
+    public void setLastSendTimeEditor(SharedPreferences lastSendTimeEditor) {
+        this.lastSendTimeEditor = lastSendTimeEditor;
     }
 }

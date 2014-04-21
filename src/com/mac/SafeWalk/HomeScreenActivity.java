@@ -29,6 +29,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     private boolean isCustom;
     private Button sendButton;
     private String swStatus;
+    private Spinner spinner = null;
 
     // Location vars
     private LocationClient mLocationClient;
@@ -68,10 +69,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         mLocationClient = new LocationClient(this, this, this);
 
     }
-
-
-
-
 
     /**
      * Checks the availability of Safewalk though Firebase
@@ -125,7 +122,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             } else if (isCustom) {
                 Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
                 startActivity(intent);
-            } else {
+            } else if (!Settings.getSettings().getPickUpLocation().equals("Select")) {
                 startActivity(intent);
             }
         } else if (swStatus.equals("Busy")){
@@ -155,7 +152,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
      * @return spinner
      */
     private Spinner setSpinner(){
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         LayoutInflater inflater = getLayoutInflater();
         spinner.setAdapter(new SafewalkArrayAdapter(this, R.layout.spinner_style, Settings.getSettings().swLocations(), inflater));
         return spinner;
