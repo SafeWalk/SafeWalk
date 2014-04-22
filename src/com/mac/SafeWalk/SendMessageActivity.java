@@ -56,7 +56,7 @@ public class SendMessageActivity extends Activity {
      * number of messages in a given time.
      */
     private void notifyTimeLimit(long lastSendTime) {
-        long timeBetweenAttempts = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - lastSendTime);
+        long timeBetweenAttempts = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - lastSendTime);
         AlertDialog timeLimitDialog = new AlertDialog.Builder(this).create();
         timeLimitDialog.setTitle("Unable to send message");
         timeLimitDialog.setMessage("Safewalk was notified " + timeBetweenAttempts + " minutes ago to pick you up.");

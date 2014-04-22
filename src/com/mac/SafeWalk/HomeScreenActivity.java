@@ -29,7 +29,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     private boolean isCustom;
     private Button sendButton;
     private String swStatus;
-    private Spinner spinner = null;
 
     // Location vars
     private LocationClient mLocationClient;
@@ -152,7 +151,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
      * @return spinner
      */
     private Spinner setSpinner(){
-        spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
         LayoutInflater inflater = getLayoutInflater();
         spinner.setAdapter(new SafewalkArrayAdapter(this, R.layout.spinner_style, Settings.getSettings().swLocations(), inflater));
         return spinner;
