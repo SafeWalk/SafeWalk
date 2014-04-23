@@ -15,9 +15,9 @@ public class Settings {
 
     private String pickUpLocation;
     private final static String SAFEWALK_PHONE_NUMBER = "6123237668"; //"6512420083";  //Currently Kohei's number
-    private String[] swLocations = {"Select", "Other", "Wallace", "Doty", "Wallace", "Doty", "Turck", "Dupre", "Campus Center", "Library",
-                                    "Old Main", "Janet Wallace", "Olin Rice", "Stadium", "Carnegie", "30 Mac",
-                                     "77 Mac", "Neil Hall"};
+    private String[] swLocations = {"Select", "Current Location", "Custom Location", "Wallace", "Doty", "Wallace",
+                                    "Doty", "Turck", "Dupre", "Campus Center", "Library", "Old Main", "Janet Wallace",
+                                    "Olin Rice", "Stadium", "Carnegie", "30 Mac", "77 Mac", "Neil Hall"};
 
     // Phone and name data
     private SharedPreferences nameData;

@@ -27,19 +27,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
+    private boolean useGPS = false;
     private Button sendButton;
     private String swStatus;
+    private static boolean gpsFinished = false;
 
     // Location vars
     private LocationClient mLocationClient;
-    private Location mCurrentLocation;
-
-
-    // GPS stuff
-    private TextView gpsText;
-    private TextView locationText;
-    private String mAddress;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,19 +48,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             setContentView(R.layout.main);
             // set up locationSpinner
             Spinner locationSpinner = setSpinner();
-            onSelectedInSpinner(locationSpinner);
+            onSelectedInSpinner(locationSpinner, this);
             sendButton = (Button) findViewById(R.id.send);
             checkAvailability();
             setFonts();
         }
-
-        // TESTING TESTING TESTING
-        gpsText = (TextView) findViewById(R.id.GPSText);
-        locationText = (TextView) findViewById(R.id.locationText);
-
         // set up locationClient
         mLocationClient = new LocationClient(this, this, this);
-
     }
 
     /**
@@ -121,6 +109,20 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             } else if (isCustom) {
                 Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
                 startActivity(intent);
+            } else if (useGPS) {
+                if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("No address found")){
+                    AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
+                    emptyLocationAlert.setTitle("The GPS couldn't find you");
+                    emptyLocationAlert.setMessage("Sorry, you should try another option");
+                    emptyLocationAlert.show();
+                } else if (gpsFinished) {
+                    startActivity(intent);
+                } else {
+                    AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
+                    emptyLocationAlert.setTitle("GPS hasn't finished");
+                    emptyLocationAlert.setMessage("GPS will be done locating you shortly");
+                    emptyLocationAlert.show();
+                }
             } else if (!Settings.getSettings().getPickUpLocation().equals("Select")) {
                 startActivity(intent);
             }
@@ -136,6 +138,10 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             safewalkBusyDialog.show();
         }
 
+    }
+
+    public static void setGpsFinished(boolean gpsFinished) {
+        HomeScreenActivity.gpsFinished = gpsFinished;
     }
 
     /**
@@ -162,22 +168,26 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
      * selection
      * @param spinner Spinner with all options and "Other" option
      */
-    private void onSelectedInSpinner(final Spinner spinner){
-
+    private void onSelectedInSpinner(final Spinner spinner, final Context context){
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 EditText customEdit = (EditText)findViewById(R.id.customLocationText);
-                if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Other")) {
-                    // If student chooses the option "Other" from spinner, an EditText magically appears.
+                if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Custom Location")) {
                     customEdit.setVisibility(View.VISIBLE);
                     isCustom = true;
+                    useGPS = false;
+                } else if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Current Location")){
+                    getAddress(getLocation(mLocationClient), context);
+                    customEdit.setVisibility(View.INVISIBLE);
+                    isCustom = false;
+                    useGPS = true;
                 } else {
                     // Otherwise the pick-up location is whatever the user chooses from spinner.
                     Settings.getSettings().setPickUpLocation(parent.getItemAtPosition(position).toString());
                     customEdit.setVisibility(View.INVISIBLE);
                     isCustom = false;
+                    useGPS = false;
                 }
             }
             // Leave this method; this has to be here.
@@ -207,14 +217,12 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     public String loadName(){
         //  Load Name
         Settings.getSettings().setNameData(getSharedPreferences(Settings.getFilename(), 0));
-        String nameReturned = Settings.getSettings().getNameData().getString("sharedName", "No name");
-        return nameReturned;
+        return Settings.getSettings().getNameData().getString("sharedName", "No name");
     }
     public String loadNumber(){
         //  Load Phone Number
         Settings.getSettings().setNameData(getSharedPreferences(Settings.getPhoneFile(), 0));
-        String numberReturned = Settings.getSettings().getNameData().getString("sharedPhone", "No number");
-        return numberReturned;
+        return Settings.getSettings().getNameData().getString("sharedPhone", "No number");
     }
 
     /**
@@ -239,20 +247,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
 
     //----------------- GPS STUFF --------------------------------------
-
-    public void locationClick(View view) {
-        mCurrentLocation = getLocation(mLocationClient);
-        Double lat = mCurrentLocation.getLatitude();
-        Double lng = mCurrentLocation.getLongitude();
-        locationText.setText(lat.toString() + " " + lng.toString());
-    }
-
-    public void gpsClick(View view) {
-        mCurrentLocation = getLocation(mLocationClient);
-        getAddress(mCurrentLocation, this);
-        gpsText.setText(Settings.getSettings().getPickUpLocation());
-    }
-
     @Override
     public void onStart() {
         super.onStart();

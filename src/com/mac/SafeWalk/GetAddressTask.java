@@ -76,6 +76,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
     @Override
     protected void onPostExecute(String address) {
         Settings.getSettings().setPickUpLocation(address);
+        HomeScreenActivity.setGpsFinished(true);
     }
 }
 
