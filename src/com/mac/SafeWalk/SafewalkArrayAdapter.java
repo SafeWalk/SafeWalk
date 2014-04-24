@@ -38,11 +38,19 @@ public class SafewalkArrayAdapter extends ArrayAdapter<String> {
         TextView spinnerOption = (TextView) mySpinner.findViewById(R.id.spinnerView);
         spinnerOption.setText(pickUpLocations[position]);
         if (black) {
-            spinnerOption.setTextColor(Color.BLACK);
             spinnerOption.setTypeface(Settings.getSettings().getQuicksandBold());
             spinnerOption.setHeight(90);
             spinnerOption.setWidth(300);
-            spinnerOption.setBackgroundResource(R.drawable.spinner_select);
+            if (position == 1) {
+                spinnerOption.setTextColor(Color.WHITE);
+                spinnerOption.setBackgroundResource(R.drawable.current_location);
+            } else if (position == 2) {
+                spinnerOption.setTextColor(Color.WHITE);
+                spinnerOption.setBackgroundResource(R.drawable.custom_location);
+            } else {
+                spinnerOption.setTextColor(Color.BLACK);
+                spinnerOption.setBackgroundResource(R.drawable.spinner_select);
+            }
         } else {
             spinnerOption.setTypeface(Settings.getSettings().getQuicksand());
         }

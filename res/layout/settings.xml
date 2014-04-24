@@ -35,6 +35,8 @@
             android:text="@string/Save"
             android:id="@+id/saveButton"
             android:layout_below="@id/number"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="270dp"
             android:layout_centerHorizontal="true"
             android:textSize="30sp"
             android:textColor="#FFFFFF"
