@@ -13,22 +13,22 @@
             android:text="@string/sent_message"
             android:id="@+id/safewalk_notified"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
             android:textSize="26sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:layout_marginBottom="100dp"/>
+            android:layout_marginBottom="70dp"/>
 
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/location"
             android:layout_gravity="center_horizontal"
             android:textSize="40sp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/safewalk_notified"
-            android:layout_marginBottom="100dp"/>
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="200dp"
+            />
 
 
     <Button
@@ -41,6 +41,8 @@
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             android:onClick="callSafewalk"
-            android:layout_below="@id/location"
+            android:layout_below="@id/safewalk_notified"
+            android:layout_marginTop="150dp"
             android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

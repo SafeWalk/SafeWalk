@@ -18,17 +18,21 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
  */
 public class HomeScreenActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener {
+        GooglePlayServicesClient.OnConnectionFailedListener, Observer {
 
 
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
     private boolean useGPS = false;
     private Button sendButton;
+    private TextView gpsAddress;
     private String swStatus;
     private static boolean gpsFinished = false;
 
@@ -50,11 +54,21 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             Spinner locationSpinner = setSpinner();
             onSelectedInSpinner(locationSpinner, this);
             sendButton = (Button) findViewById(R.id.send);
+            gpsAddress = (TextView) findViewById(R.id.GPSText);
             checkAvailability();
             setFonts();
         }
         // set up locationClient
         mLocationClient = new LocationClient(this, this, this);
+        Settings.getSettings().setObserver(this);
+        //Reset pick-up location
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Settings.getSettings().setPickUpLocation("");
+        gpsFinished = false;
     }
 
     /**
@@ -172,20 +186,24 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                EditText customEdit = (EditText)findViewById(R.id.customLocationText);
+                EditText customEdit = (EditText) findViewById(R.id.customLocationText);
                 if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Custom Location")) {
                     customEdit.setVisibility(View.VISIBLE);
+                    gpsAddress.setVisibility(View.INVISIBLE);
                     isCustom = true;
                     useGPS = false;
                 } else if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Current Location")){
                     getAddress(getLocation(mLocationClient), context);
                     customEdit.setVisibility(View.INVISIBLE);
+                    gpsAddress.setVisibility(View.VISIBLE);
+                    gpsAddress.setText("Getting current Location");
                     isCustom = false;
                     useGPS = true;
                 } else {
                     // Otherwise the pick-up location is whatever the user chooses from spinner.
                     Settings.getSettings().setPickUpLocation(parent.getItemAtPosition(position).toString());
                     customEdit.setVisibility(View.INVISIBLE);
+                    gpsAddress.setVisibility(View.INVISIBLE);
                     isCustom = false;
                     useGPS = false;
                 }
@@ -210,7 +228,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         title.setTypeface(Settings.getSettings().getQuicksand());
         otherAddress.setTypeface(Settings.getSettings().getQuicksandBold());
         sendButton.setTypeface(Settings.getSettings().getQuicksand());
+        gpsAddress.setTypeface(Settings.getSettings().getQuicksand());
 
+    }
+
+    @Override
+    public void update(Observable observable, Object data) {
+        gpsAddress.setText(Settings.getSettings().getPickUpLocation());
     }
 
 //    Load Shared Preferences
@@ -267,6 +291,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     public void onDisconnected() {
         Toast.makeText(this, "Disconnected. Please re-connect.",
                 Toast.LENGTH_LONG).show();
+        mLocationClient.disconnect();
     }
 
     @Override
