@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -23,6 +24,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         mContext = context;
     }
 
+
     /*
      * Do task in background so there is no interruption.
      */
@@ -32,8 +34,11 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         // Set up geocoder
         Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
 
+
         // Get current location from parameter list
         Location location = params[0];
+
+
 
         //Create a list to contain the result address
         List<Address> addresses = null;
@@ -57,7 +62,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         Log.w("Ended try", "NOW<<<<<<");
 
         // Check if geocode returned an address
-        if (addresses != null && addresses.size() > 0) {
+        if (addresses != null && addresses.size() > 0 && (location.getAccuracy() > 200)) {
             // Get first address from list
             Address address = addresses.get(0);
 
@@ -65,6 +70,8 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             String addressText = String.format("%s, %s, %s", address.getMaxAddressLineIndex() > 0 ?
                                  address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
             return addressText;
+        } else if (location.getAccuracy() >= 200.0) {
+            return "Location not accurate";
         } else {
             return "No address found";
         }

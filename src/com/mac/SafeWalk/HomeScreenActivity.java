@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     // Location vars
     private LocationClient mLocationClient;
+    private LocationManager locationManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -275,6 +277,15 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     public void onStart() {
         super.onStart();
         mLocationClient.connect();
+
+        // Checks if GPS is enabled on device
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            Toast.makeText(this, "GPS disabled. For best accuracy please enable GPS on device.",
+                            Toast.LENGTH_LONG).show();
+        }
+
     }
 
     @Override
@@ -284,13 +295,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     @Override
     public void onConnected(Bundle bundle) {
-        Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onDisconnected() {
         Toast.makeText(this, "Disconnected. Please re-connect.",
-                Toast.LENGTH_LONG).show();
+                Toast.LENGTH_SHORT).show();
         mLocationClient.disconnect();
     }
 
