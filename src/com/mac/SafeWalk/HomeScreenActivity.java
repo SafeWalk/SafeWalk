@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.*;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -34,6 +36,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     private boolean useGPS = false;
     private Button sendButton;
     private TextView gpsAddress;
+    private ImageView arrow;
     private String swStatus;
     private static boolean gpsFinished = false;
 
@@ -63,6 +66,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         // set up locationClient
         mLocationClient = new LocationClient(this, this, this);
         Settings.getSettings().setObserver(this);
+        arrow = (ImageView) findViewById(R.id.arrow);
         //Reset pick-up location
     }
 
@@ -131,6 +135,11 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
                     emptyLocationAlert.setTitle("The GPS couldn't find you");
                     emptyLocationAlert.setMessage("Sorry, you should try another option");
                     emptyLocationAlert.show();
+                } else if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("Location not accurate")) {
+                    AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
+                    emptyLocationAlert.setTitle("Sorry, the GPS can't find you");
+                    emptyLocationAlert.setMessage("Try moving to a more open area or use another option");
+                    emptyLocationAlert.show();
                 } else if (gpsFinished) {
                     startActivity(intent);
                 } else {
@@ -189,13 +198,18 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 EditText customEdit = (EditText) findViewById(R.id.customLocationText);
+                Button retryButton = (Button) findViewById(R.id.retry);
                 if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Custom Location")) {
                     customEdit.setVisibility(View.VISIBLE);
                     gpsAddress.setVisibility(View.INVISIBLE);
+                    retryButton.setVisibility(View.INVISIBLE);
+                    arrow.setVisibility(View.INVISIBLE);
                     isCustom = true;
                     useGPS = false;
                 } else if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Current Location")){
                     getAddress(getLocation(mLocationClient), context);
+                    retryButton.setVisibility(View.VISIBLE);
+                    arrow.setVisibility(View.VISIBLE);
                     customEdit.setVisibility(View.INVISIBLE);
                     gpsAddress.setVisibility(View.VISIBLE);
                     gpsAddress.setText("Getting current Location");
@@ -206,6 +220,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
                     Settings.getSettings().setPickUpLocation(parent.getItemAtPosition(position).toString());
                     customEdit.setVisibility(View.INVISIBLE);
                     gpsAddress.setVisibility(View.INVISIBLE);
+                    retryButton.setVisibility(View.INVISIBLE);
+                    arrow.setVisibility(View.INVISIBLE);
                     isCustom = false;
                     useGPS = false;
                 }
@@ -236,7 +252,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     @Override
     public void update(Observable observable, Object data) {
-        gpsAddress.setText(Settings.getSettings().getPickUpLocation());
+        if (gpsAddress != null)
+            gpsAddress.setText(Settings.getSettings().getPickUpLocation());
     }
 
 //    Load Shared Preferences
@@ -276,8 +293,9 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     @Override
     public void onStart() {
         super.onStart();
-        mLocationClient.connect();
-
+        if (!mLocationClient.isConnected()) {
+            mLocationClient.connect();
+        }
         // Checks if GPS is enabled on device
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -285,7 +303,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             Toast.makeText(this, "GPS disabled. For best accuracy please enable GPS on device.",
                             Toast.LENGTH_LONG).show();
         }
-
     }
 
     @Override
@@ -314,10 +331,24 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
 
     public Location getLocation(LocationClient locationClient) {
-        return locationClient.getLastLocation();
+        Log.w("GPS connection", Boolean.toString(mLocationClient.isConnected()));
+        if (mLocationClient.isConnected()){
+            return locationClient.getLastLocation();
+        } else {
+            return null;
+        }
     }
 
     public void getAddress(Location location, Context context) {
         (new GetAddressTask(context)).execute(location);
+    }
+
+    public void retryLocation(View view) {
+        RotateAnimation rotateAnimation = new RotateAnimation(0f, 350f, 50f, 50f);
+        rotateAnimation.setInterpolator(new LinearInterpolator());
+        rotateAnimation.setRepeatCount(1);
+        rotateAnimation.setDuration(700);
+        arrow.startAnimation(rotateAnimation);
+        getAddress(getLocation(mLocationClient), this);
     }
 }

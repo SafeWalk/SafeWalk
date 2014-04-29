@@ -13,9 +13,10 @@ import java.util.Observable;
 public class Settings extends Observable{
 
     private static final Settings settings = new Settings(); //singleton
+    private Settings(){}
     private Context context;
 
-    private String pickUpLocation;
+    private String pickUpLocation = "";
     private final static String SAFEWALK_PHONE_NUMBER = "6123237668"; //"6512420083";  //Currently Kohei's number
     private String[] swLocations = {"Select", "Current Location", "Custom Location", "Wallace", "Doty", "Wallace",
                                     "Doty", "Turck", "Dupre", "Campus Center", "Library", "Old Main", "Janet Wallace",

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -12,9 +11,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-    /**
-     * Subclass of AsyncTask used to get the address given the latitude and the longitude.
-     */
+/**
+ * Subclass of AsyncTask used to get the address given the latitude and the longitude.
+ */
 public class GetAddressTask extends AsyncTask<Location, Void, String> {
 
     Context mContext;
@@ -42,8 +41,9 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
 
         //Create a list to contain the result address
         List<Address> addresses = null;
-        Log.w("Started try", "NOW <<<<<<");
         try {
+            Log.w("Started try", "NOW <<<<<<");
+            Log.w("GPS Accuracy", Float.toString(location.getAccuracy()));
             addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1);
         } catch (IOException e1) {
@@ -58,19 +58,21 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             Log.e("GPS Feature" , errorString);
             e2.printStackTrace();
             return errorString;
+        } catch (NullPointerException e3){
+            //Waiting for connection
         }
         Log.w("Ended try", "NOW<<<<<<");
 
         // Check if geocode returned an address
-        if (addresses != null && addresses.size() > 0 && (location.getAccuracy() > 200)) {
+        if (addresses != null && addresses.size() > 0 && (location.getAccuracy() < 200)) {
             // Get first address from list
             Address address = addresses.get(0);
 
             // Format the address
             String addressText = String.format("%s, %s, %s", address.getMaxAddressLineIndex() > 0 ?
-                                 address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
+                    address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
             return addressText;
-        } else if (location.getAccuracy() >= 200.0) {
+        } else if (location.getAccuracy() >= 200) {
             return "Location not accurate";
         } else {
             return "No address found";

@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class SendMessageActivity extends Activity {
 
-    private static final long WAIT_TIME = 30000; // in milliseconds
+    private static final long WAIT_TIME = 100000; // in milliseconds
     private static final String LAST_TIME = "lastSendTime";
 
     @Override
@@ -38,7 +38,7 @@ public class SendMessageActivity extends Activity {
      */
     private void checkTimeBeforeSend() {
         SharedPreferences.Editor lastSendTimeEditor;
-        long lastSendTime = getSharedPreferences("lastSendTime", 0).getLong(LAST_TIME, -1);
+        long lastSendTime = getSharedPreferences(LAST_TIME, 0).getLong(LAST_TIME, -1);
         if (lastSendTime <= System.currentTimeMillis() - WAIT_TIME) {
             Log.w("sent", "MESSAGE SENT");
             sendSms(Settings.getSafewalkPhoneNumber());
@@ -119,7 +119,6 @@ public class SendMessageActivity extends Activity {
         callButton.setTypeface(Settings.getSettings().getQuicksand());
         //Set text (pick up location)
         locationDisplay.setText(Settings.getSettings().getPickUpLocation());
-
     }
 
 }

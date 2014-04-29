@@ -16,7 +16,7 @@
             android:textSize="60sp"
             android:layout_marginBottom="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"/>
+            android:layout_marginTop="40dp"/>
 
     <TextView
             android:id="@+id/GPSText"
@@ -73,5 +73,27 @@
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/title"
             android:layout_marginBottom="25dp"/>
+
+
+
+    <Button android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/spinner"
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/sat"
+            android:id="@+id/retry"
+            android:onClick="retryLocation"/>
+
+    <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/arrow"
+            android:layout_alignBottom="@+id/spinner"
+            android:background="@drawable/arrow"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/spinner"/>
 
 </RelativeLayout>
