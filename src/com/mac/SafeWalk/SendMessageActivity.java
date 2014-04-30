@@ -21,6 +21,8 @@ public class SendMessageActivity extends Activity {
 
     private static final long WAIT_TIME = 100000; // in milliseconds
     private static final String LAST_TIME = "lastSendTime";
+    private static String tempLocation;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,15 +41,23 @@ public class SendMessageActivity extends Activity {
     private void checkTimeBeforeSend() {
         SharedPreferences.Editor lastSendTimeEditor;
         long lastSendTime = getSharedPreferences(LAST_TIME, 0).getLong(LAST_TIME, -1);
+        TextView locationDisplay = (TextView) findViewById(R.id.location);
         if (lastSendTime <= System.currentTimeMillis() - WAIT_TIME) {
             Log.w("sent", "MESSAGE SENT");
             sendSms(Settings.getSafewalkPhoneNumber());
             lastSendTimeEditor = Settings.getSettings().getLastSendTimeEditor().edit();
             lastSendTimeEditor.putLong("lastSendTime", System.currentTimeMillis());
             lastSendTimeEditor.commit();
+
+            //Set text (pick up location)
+            locationDisplay.setText(Settings.getSettings().getPickUpLocation());
+            //Set temp location
+            tempLocation = Settings.getSettings().getPickUpLocation();
         } else {
             notifyTimeLimit(lastSendTime);
             Log.w("sent", "MESSAGE NOT SENT");
+            //Set text (previous pick up location)
+            locationDisplay.setText(tempLocation);
         }
     }
 
@@ -117,8 +127,6 @@ public class SendMessageActivity extends Activity {
         locationDisplay.setTypeface(Settings.getSettings().getQuicksand());
         topMessage.setTypeface(Settings.getSettings().getQuicksand());
         callButton.setTypeface(Settings.getSettings().getQuicksand());
-        //Set text (pick up location)
-        locationDisplay.setText(Settings.getSettings().getPickUpLocation());
     }
 
 }

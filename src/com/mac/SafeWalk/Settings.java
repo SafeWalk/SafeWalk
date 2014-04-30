@@ -100,4 +100,6 @@ public class Settings extends Observable{
     public void setLastSendTimeEditor(SharedPreferences lastSendTimeEditor) {
         this.lastSendTimeEditor = lastSendTimeEditor;
     }
+
+
 }

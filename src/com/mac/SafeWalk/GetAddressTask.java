@@ -64,7 +64,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         Log.w("Ended try", "NOW<<<<<<");
 
         // Check if geocode returned an address
-        if (addresses != null && addresses.size() > 0 && (location.getAccuracy() < 200)) {
+        if (addresses != null && addresses.size() > 0 && (location.getAccuracy() < 100)) {
             // Get first address from list
             Address address = addresses.get(0);
 
@@ -72,7 +72,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             String addressText = String.format("%s, %s, %s", address.getMaxAddressLineIndex() > 0 ?
                     address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
             return addressText;
-        } else if (location.getAccuracy() >= 200) {
+        } else if (location.getAccuracy() >= 100) {
             return "Location not accurate";
         } else {
             return "No address found";
