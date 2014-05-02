@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.firebase.client.Firebase;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,13 +21,14 @@ import java.util.concurrent.TimeUnit;
 public class SendMessageActivity extends Activity {
 
     // Time in milliseconds of how long user must wait after sending a request to safewalk.
-    private static final long WAIT_TIME = 100000;
+    private static final long WAIT_TIME = 1;
 
     // The time of when user sent last request.
     private static final String LAST_TIME = "lastSendTime";
 
     // Stores the location of the pickup location until it is the appropriate time to change it.
     private static String tempLocation;
+
 
 
     @Override
@@ -108,7 +110,14 @@ public class SendMessageActivity extends Activity {
 
         // Try sending sms
         try {
-           SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null);
+            Firebase listRef = new Firebase("https://safewalk.firebaseio.com/Notifications");
+            Firebase listRefPush = listRef.push();
+            HashMap<String, String> infoToPush = new HashMap<String, String>();
+            infoToPush.put("Name", nameReturned);
+            infoToPush.put("Number", numberReturned);
+            infoToPush.put("Location", Settings.getSettings().getPickUpLocation());
+            listRefPush.setValue(infoToPush);
+           //SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null); //DO NOT DELETE
         } catch (Exception e) {
             // Show alert dialog if unable to send sms
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
