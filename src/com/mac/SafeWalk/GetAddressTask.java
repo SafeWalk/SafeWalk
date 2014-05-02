@@ -16,11 +16,11 @@ import java.util.Locale;
  */
 public class GetAddressTask extends AsyncTask<Location, Void, String> {
 
-    Context mContext;
+    Context context;
 
     public GetAddressTask(Context context) {
         super();
-        mContext = context;
+        this.context = context;
     }
 
 
@@ -31,7 +31,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
     protected String doInBackground(Location... params) {
 
         // Set up geocoder
-        Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
 
         // Get current location from parameter list
         Location location = params[0];
@@ -44,7 +44,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1);
         } catch (IOException e1) {
-            Log.e("GPS Feature", "IO Exception in getFromLocation");
+            Log.e("GetAddressTask", "IO Exception in getFromLocation");
             e1.printStackTrace();
         } catch (IllegalArgumentException e2) {
             // Make error string
@@ -53,7 +53,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
                     " , " +
                     Double.toString(location.getLongitude()) +
                     " passed to address services";
-            Log.e("GPS Feature" , errorString);
+            Log.e("GetAddressTask" , errorString);
             e2.printStackTrace();
             return errorString;
         } catch (NullPointerException e3){
@@ -70,7 +70,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
                     address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
             return addressText;
         } else if (location.getAccuracy() >= 100) {
-            return "Location not accurate";
+            return "Your location is not accurate enough\nTap on the arrow to try again.";
         } else {
             return "No address found";
         }

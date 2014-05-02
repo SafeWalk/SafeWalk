@@ -58,7 +58,7 @@ public class SendMessageActivity extends Activity {
             // Send sms to designated phone number.
             sendSms(Settings.getSafewalkPhoneNumber());
             // log if sms message was sent.
-            Log.w("sent", "MESSAGE SENT");
+            Log.w("SendMessageActivity", "Location SENT");
 
             lastSendTimeEditor = Settings.getSettings().getLastSendTimeEditor().edit();
             lastSendTimeEditor.putLong("lastSendTime", System.currentTimeMillis());
@@ -71,7 +71,7 @@ public class SendMessageActivity extends Activity {
         } else {
             notifyTimeLimit(lastSendTime);
             // log if message was not sent.
-            Log.w("sent", "MESSAGE NOT SENT");
+            Log.w("SendMessageActivity", "Location NOT SENT");
             //Set View (previous pick up location)
             locationDisplay.setText(tempLocation);
         }
@@ -105,8 +105,6 @@ public class SendMessageActivity extends Activity {
         String sms = Settings.getSettings().getPickUpLocation()
                 + "\nThe request has been placed by " + nameReturned
                 + ". \nFor any additional information please contact the user at " + numberReturned +".";
-
-        Log.w("sent", sms);
 
         // Try sending sms
         try {

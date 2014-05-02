@@ -33,34 +33,23 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
-    // Check if using GPS
     private boolean useGPS = false;
-
-    // Status of safewalk workers.
-    private String swStatus;
-
-    // Access to Google Location Services
-    private LocationClient locationClient;
-
-    // Access to system location services.
-    private LocationManager locationManager;
-
-    // Status of GetAddressTask.
-    private static boolean gpsFinished = false;
-
-    // View elements
     private Button sendButton;
     private TextView gpsAddress;
     private ImageView arrow;
+    private String swStatus;
+    private static boolean gpsFinished = false;
+
+    // Location vars
+    private LocationClient locationClient;
+    private LocationManager locationManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+//        If no name and phone number saved, go to settingsActivity
         String name = loadName();
         String phoneNumber = loadNumber();
-
-        // If no name and phone number saved, go to settingsActivity
         if (name.equals("No name") && phoneNumber.equals("No number")){
             Intent welcome = new Intent(this, WelcomeActivity.class);
             startActivity(welcome);
@@ -78,12 +67,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         locationClient = new LocationClient(this, this, this);
         Settings.getSettings().setObserver(this);
         arrow = (ImageView) findViewById(R.id.arrow);
-        //Reset pick-up location
     }
 
-    /*
-     * Called when activity is resumed.
-     */
     @Override
     public void onResume(){
         super.onResume();
@@ -92,7 +77,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     }
 
     /**
-     * Checks the availability of Safewalk though Firebase.
+     * Checks the availability of Safewalk though Firebase
      */
     private void checkAvailability() {
         Firebase ref = new Firebase("https://safewalk.firebaseio.com/Status");
@@ -102,6 +87,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             public void onDataChange(DataSnapshot snap) {
                 setSendButton(snap.getValue(String.class));
                 swStatus = snap.getValue(String.class);
+                Log.w("Main Activity", "Safewalk status: " + swStatus);
             }
 
             @Override
@@ -121,66 +107,63 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     }
 
     /**
-     * Sends the pick-up location to the next activity so that the Sms Manager can send a text message if
-     * the safewalk status is available. Else it warns the user of the current state.
-     * Accessed when "send" button is clicked. Retrieves data from EditText via retrieveLocation method.
+     * Executed when "send" button is clicked. It checks for the current status of safewalk and either executes
+     * swAvailble if available or creates an alert dialog to inform the user why their request was unsuccessful.
      */
     public void sendClick(View view) {
         if (swStatus == null) {
-            AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
-            safewalkBusyDialog.setTitle("Safewalk is unreachable");
-            safewalkBusyDialog.setMessage("Unable to get Safewalk status. Check you internet connection.");
-            safewalkBusyDialog.show();
+            createAlertDialog("Safewalk is unreachable", "Unable to get Safewalk status. Check you internet connection.");
         } else if (swStatus.equals("Available")){
-            EditText customEdit = (EditText) findViewById(R.id.customLocationText);
-            Intent intent = new Intent(this, SendMessageActivity.class);
-            if (retrieveLocation(customEdit).equals("") && isCustom) {
-                AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
-                emptyLocationAlert.setTitle("Empty Location");
-                emptyLocationAlert.setMessage("You must input a valid pickup location");
-                emptyLocationAlert.show();
-            } else if (isCustom) {
-                Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
-                startActivity(intent);
-            } else if (useGPS) {
-                if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("No address found")){
-                    AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
-                    emptyLocationAlert.setTitle("The GPS couldn't find you");
-                    emptyLocationAlert.setMessage("Sorry, you should try another option");
-                    emptyLocationAlert.show();
-                } else if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("Location not accurate")) {
-                    AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
-                    emptyLocationAlert.setTitle("Sorry, the GPS can't find you");
-                    emptyLocationAlert.setMessage("Try moving to a more open area or use another option");
-                    emptyLocationAlert.show();
-                } else if (gpsFinished) {
-                    startActivity(intent);
-                } else {
-                    AlertDialog emptyLocationAlert = new AlertDialog.Builder(this).create();
-                    emptyLocationAlert.setTitle("GPS hasn't finished");
-                    emptyLocationAlert.setMessage("GPS will be done locating you shortly");
-                    emptyLocationAlert.show();
-                }
-            } else if (!Settings.getSettings().getPickUpLocation().equals("Select")) {
-                startActivity(intent);
-            }
+            swAvailable();
         } else if (swStatus.equals("Busy")){
-            AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
-            safewalkBusyDialog.setTitle("Safewalk is busy");
-            safewalkBusyDialog.setMessage("We're sorry, all our workers are currently busy");
-            safewalkBusyDialog.show();
+            createAlertDialog("Safewalk is busy", "We're sorry, all our workers are currently busy");
         } else {
-            AlertDialog safewalkBusyDialog = new AlertDialog.Builder(this).create();
-            safewalkBusyDialog.setTitle("Safewalk is not available");
-            safewalkBusyDialog.setMessage("We're sorry, Safewalk is not available at this time");
-            safewalkBusyDialog.show();
+            createAlertDialog("Safewalk is not available", "We're sorry, Safewalk is not available at this time");
         }
 
     }
 
-    /*
-     * Set status of GetAddressTask.
+    /**
+     * This method is called after the user clicks send and safewalk's status is available. It then checks what
+     * kind of location the user: from the dropdown menu, custom written or GPS. It does the necessary checks
+     * before sending the location to SendMessageActivity.
      */
+    private void swAvailable() {
+        EditText customEdit = (EditText) findViewById(R.id.customLocationText);
+        Intent intent = new Intent(this, SendMessageActivity.class);
+        if (retrieveLocation(customEdit).equals("") && isCustom) {
+            createAlertDialog("Empty Location", "Please enter a valid pickup location");
+        } else if (isCustom) {
+            Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
+            startActivity(intent);
+        } else if (useGPS) {
+            if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("No address found")){
+                createAlertDialog("The GPS couldn't find you", "Sorry, you should try another option");
+            } else if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("Location not accurate")) {
+                createAlertDialog("Sorry, the GPS can't find you", "Try moving to a more open area or use another option");
+            } else if (gpsFinished) {
+                startActivity(intent);
+            } else {
+                createAlertDialog("GPS hasn't finished", "GPS will be done locating you shortly");
+            }
+        } else if (!Settings.getSettings().getPickUpLocation().equals("Select")) {
+            startActivity(intent);
+        }
+    }
+
+    /**
+     * This method generates a generic alert dialog from the two input strings and displays it.
+     * @param title of the alert dialog
+     * @param body of the alert dialog
+     */
+
+    public void createAlertDialog(String title, String body){
+        AlertDialog genericDialog = new AlertDialog.Builder(this).create();
+        genericDialog.setTitle(title);
+        genericDialog.setMessage(body);
+        genericDialog.show();
+    }
+
     public static void setGpsFinished(boolean gpsFinished) {
         HomeScreenActivity.gpsFinished = gpsFinished;
     }
@@ -305,17 +288,16 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     }
 
 
-    //----------------- GPS COMPONENT --------------------------------------
+    //----------------- GPS --------------------------------------
     @Override
     public void onStart() {
         super.onStart();
         if (!locationClient.isConnected()) {
             locationClient.connect();
         }
-
-        // Use location manager to check if GPS is enabled on device.
+        // Checks if GPS is enabled on device
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        // Notify user that GPS is disabled.
+
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             Toast.makeText(this, "GPS disabled. For best accuracy please enable GPS on device.",
                             Toast.LENGTH_LONG).show();
@@ -327,17 +309,11 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         super.onStop();
     }
 
-    /*
-     * Notifies user that location client has connected to Google Location Services.
-     */
     @Override
     public void onConnected(Bundle bundle) {
         Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
     }
 
-    /*
-     * Notifies user that location client has disconnected from Google Location Services.
-     */
     @Override
     public void onDisconnected() {
         Toast.makeText(this, "Disconnected. Please re-connect.",
@@ -345,9 +321,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         locationClient.disconnect();
     }
 
-    /*
-     * Notifies user that location client was not able to connect to Google Location Services.
-     */
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Toast.makeText(this, "Connection Failure : " +
@@ -355,42 +328,22 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
                 Toast.LENGTH_LONG).show();
     }
 
-    /*
-     * Gets the current location. For updating purposes.
-     */
+
     public Location getLocation(LocationClient locationClient) {
-
-        // Log connection result.
-        Log.w("GPS connection", Boolean.toString(this.locationClient.isConnected()));
-
-        // Get last location if location client is connected.
-        if (this.locationClient.isConnected()){
-            return locationClient.getLastLocation();
-        } else {
-            return null;
-        }
+        Log.w("GPS connection", Boolean.toString(locationClient.isConnected()));
+        return locationClient.getLastLocation();
     }
 
-    /*
-     * Calls GetAddressTask to retrieve the street address. The street address is saved into settings.
-     */
     public void getAddress(Location location, Context context) {
         (new GetAddressTask(context)).execute(location);
     }
 
-    /*
-     * Tries to get an updated location.
-     */
     public void retryLocation(View view) {
-
-        // Cool spinning arrow animation.
         RotateAnimation rotateAnimation = new RotateAnimation(0f, 350f, 50f, 50f);
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setRepeatCount(1);
         rotateAnimation.setDuration(700);
         arrow.startAnimation(rotateAnimation);
-
-        // Get new address and save to settings.
         getAddress(getLocation(locationClient), this);
     }
 }

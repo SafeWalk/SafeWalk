@@ -41,7 +41,7 @@
     <EditText
             android:id="@+id/customLocationText"
             android:layout_width="200dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:visibility="invisible"
             android:singleLine="true"
             android:hint="@string/other_hint"
@@ -74,15 +74,13 @@
             android:layout_toRightOf="@+id/title"
             android:layout_marginBottom="25dp"/>
 
-
-
-    <Button android:layout_width="30dp"
-            android:layout_height="30dp"
+    <Button android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignBottom="@+id/spinner"
             android:layout_toRightOf="@+id/spinner"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/sat"
+            android:background="@drawable/gps_arrow"
             android:id="@+id/retry"
             android:onClick="retryLocation"/>
 
