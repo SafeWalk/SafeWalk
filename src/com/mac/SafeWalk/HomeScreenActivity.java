@@ -33,23 +33,34 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     // Boolean to check if student is choosing from spinner or inputting address.
     private boolean isCustom;
+    // Check if using GPS
     private boolean useGPS = false;
+
+    // Status of safewalk workers.
+    private String swStatus;
+
+    // Access to Google Location Services
+    private LocationClient locationClient;
+
+    // Access to system location services.
+    private LocationManager locationManager;
+
+    // Status of GetAddressTask.
+    private static boolean gpsFinished = false;
+
+    // View elements
     private Button sendButton;
     private TextView gpsAddress;
     private ImageView arrow;
-    private String swStatus;
-    private static boolean gpsFinished = false;
-
-    // Location vars
-    private LocationClient mLocationClient;
-    private LocationManager locationManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        If no name and phone number saved, go to settingsActivity
+
         String name = loadName();
         String phoneNumber = loadNumber();
+
+        // If no name and phone number saved, go to settingsActivity
         if (name.equals("No name") && phoneNumber.equals("No number")){
             Intent welcome = new Intent(this, WelcomeActivity.class);
             startActivity(welcome);
@@ -64,12 +75,15 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             setFonts();
         }
         // set up locationClient
-        mLocationClient = new LocationClient(this, this, this);
+        locationClient = new LocationClient(this, this, this);
         Settings.getSettings().setObserver(this);
         arrow = (ImageView) findViewById(R.id.arrow);
         //Reset pick-up location
     }
 
+    /*
+     * Called when activity is resumed.
+     */
     @Override
     public void onResume(){
         super.onResume();
@@ -78,7 +92,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     }
 
     /**
-     * Checks the availability of Safewalk though Firebase
+     * Checks the availability of Safewalk though Firebase.
      */
     private void checkAvailability() {
         Firebase ref = new Firebase("https://safewalk.firebaseio.com/Status");
@@ -88,7 +102,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             public void onDataChange(DataSnapshot snap) {
                 setSendButton(snap.getValue(String.class));
                 swStatus = snap.getValue(String.class);
-                Log.w("Status", ">>>>>>>>>>>>>" + swStatus);
             }
 
             @Override
@@ -165,6 +178,9 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     }
 
+    /*
+     * Set status of GetAddressTask.
+     */
     public static void setGpsFinished(boolean gpsFinished) {
         HomeScreenActivity.gpsFinished = gpsFinished;
     }
@@ -207,7 +223,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
                     isCustom = true;
                     useGPS = false;
                 } else if (spinner.getItemAtPosition(position).toString().equalsIgnoreCase("Current Location")){
-                    getAddress(getLocation(mLocationClient), context);
+                    getAddress(getLocation(locationClient), context);
                     retryButton.setVisibility(View.VISIBLE);
                     arrow.setVisibility(View.VISIBLE);
                     customEdit.setVisibility(View.INVISIBLE);
@@ -289,16 +305,17 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     }
 
 
-    //----------------- GPS STUFF --------------------------------------
+    //----------------- GPS COMPONENT --------------------------------------
     @Override
     public void onStart() {
         super.onStart();
-        if (!mLocationClient.isConnected()) {
-            mLocationClient.connect();
+        if (!locationClient.isConnected()) {
+            locationClient.connect();
         }
-        // Checks if GPS is enabled on device
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+        // Use location manager to check if GPS is enabled on device.
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        // Notify user that GPS is disabled.
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             Toast.makeText(this, "GPS disabled. For best accuracy please enable GPS on device.",
                             Toast.LENGTH_LONG).show();
@@ -310,18 +327,27 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         super.onStop();
     }
 
+    /*
+     * Notifies user that location client has connected to Google Location Services.
+     */
     @Override
     public void onConnected(Bundle bundle) {
         Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
     }
 
+    /*
+     * Notifies user that location client has disconnected from Google Location Services.
+     */
     @Override
     public void onDisconnected() {
         Toast.makeText(this, "Disconnected. Please re-connect.",
                 Toast.LENGTH_SHORT).show();
-        mLocationClient.disconnect();
+        locationClient.disconnect();
     }
 
+    /*
+     * Notifies user that location client was not able to connect to Google Location Services.
+     */
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Toast.makeText(this, "Connection Failure : " +
@@ -329,26 +355,42 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
                 Toast.LENGTH_LONG).show();
     }
 
-
+    /*
+     * Gets the current location. For updating purposes.
+     */
     public Location getLocation(LocationClient locationClient) {
-        Log.w("GPS connection", Boolean.toString(mLocationClient.isConnected()));
-        if (mLocationClient.isConnected()){
+
+        // Log connection result.
+        Log.w("GPS connection", Boolean.toString(this.locationClient.isConnected()));
+
+        // Get last location if location client is connected.
+        if (this.locationClient.isConnected()){
             return locationClient.getLastLocation();
         } else {
             return null;
         }
     }
 
+    /*
+     * Calls GetAddressTask to retrieve the street address. The street address is saved into settings.
+     */
     public void getAddress(Location location, Context context) {
         (new GetAddressTask(context)).execute(location);
     }
 
+    /*
+     * Tries to get an updated location.
+     */
     public void retryLocation(View view) {
+
+        // Cool spinning arrow animation.
         RotateAnimation rotateAnimation = new RotateAnimation(0f, 350f, 50f, 50f);
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setRepeatCount(1);
         rotateAnimation.setDuration(700);
         arrow.startAnimation(rotateAnimation);
-        getAddress(getLocation(mLocationClient), this);
+
+        // Get new address and save to settings.
+        getAddress(getLocation(locationClient), this);
     }
 }

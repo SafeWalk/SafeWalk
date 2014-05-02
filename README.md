@@ -9,7 +9,7 @@ This project is an Android App that notifies Macalester College's Safewalk servi
 * Firebase library (This is already in the repository so there is no need to download again)
 
 ##Getting started to run the project
-1. For the repository into your GitHub account, clone it to your computer and open the project
+1. Fork the repository into your GitHub account, clone it to your computer and open the project
 2. Open the project structure and under `Modules` select Safewalk. Then click on the `Dependencies` tab.
 3. Make sure the project uses the Android SDK installed in your computer. If it's not in the dropdown menu click on `new...` and follow the instructions.
 4. Import the `google-play-services_lib` module to the project: Click on the upper left `+` sign and navigate to your Android SDK directory and choose `extras > google > google-play-services > libsproject > google-play-services_lib`.
@@ -19,10 +19,10 @@ This project is an Android App that notifies Macalester College's Safewalk servi
 8. Click `Ok` 
 
 These steps can be a little confusing so make sure that at the end you have the following dependencies on the Safewalk module:
-* `google-play-services_lib`
-* `google-play-services.jar` 
-* `android-support-v4.jar` 
-* `firebase-client-jvm-LATEST`
+* `google-play-services_lib` Module
+* `google-play-services.jar` Library
+* `android-support-v4.jar` Library 
+* `firebase-client-jvm-LATEST` Library
 
 ##Firebase
 This project uses Firebase to allow the Safewalk workers to update in real time the availability of their service. They can use a simple website interface to change the databese that is located at in http://safewalk.firebaseio.com. If the firebase library appears red or doesn't appear at all under the dependencies of the second module follow the following steps:

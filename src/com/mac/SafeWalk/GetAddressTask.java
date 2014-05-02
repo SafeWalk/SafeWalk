@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Subclass of AsyncTask used to get the address given the latitude and the longitude.
+ * Subclass of AsyncTask. Used to get the street address given the latitude and the longitude.
  */
 public class GetAddressTask extends AsyncTask<Location, Void, String> {
 
@@ -33,23 +33,21 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         // Set up geocoder
         Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
 
-
         // Get current location from parameter list
         Location location = params[0];
 
-
-
-        //Create a list to contain the result address
+        // Create a list to contain the result address
         List<Address> addresses = null;
         try {
-            Log.w("Started try", "NOW <<<<<<");
-            Log.w("GPS Accuracy", Float.toString(location.getAccuracy()));
+
+            // Get a list of street addresses using the geocoder.
             addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1);
         } catch (IOException e1) {
             Log.e("GPS Feature", "IO Exception in getFromLocation");
             e1.printStackTrace();
         } catch (IllegalArgumentException e2) {
+            // Make error string
             String errorString = "Illegal arguments " +
                     Double.toString(location.getLatitude()) +
                     " , " +
@@ -59,16 +57,15 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             e2.printStackTrace();
             return errorString;
         } catch (NullPointerException e3){
-            //Waiting for connection
+            // Waiting for connection
         }
-        Log.w("Ended try", "NOW<<<<<<");
 
         // Check if geocode returned an address
         if (addresses != null && addresses.size() > 0 && (location.getAccuracy() < 100)) {
             // Get first address from list
             Address address = addresses.get(0);
 
-            // Format the address
+            // Format the address.
             String addressText = String.format("%s, %s, %s", address.getMaxAddressLineIndex() > 0 ?
                     address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
             return addressText;
@@ -80,7 +77,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
     }
 
     /*
-     * Method called after the task is finished.
+     * Method called after the task is finished. The address is saved into settings.
      */
     @Override
     protected void onPostExecute(String address) {

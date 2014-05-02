@@ -15,21 +15,30 @@ import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
 
 /**
- * This activity sends the SMS to a predetermined SafeWalk number
+ * This activity sends the SMS to a predetermined SafeWalk number.
  */
 public class SendMessageActivity extends Activity {
 
-    private static final long WAIT_TIME = 100000; // in milliseconds
+    // Time in milliseconds of how long user must wait after sending a request to safewalk.
+    private static final long WAIT_TIME = 100000;
+
+    // The time of when user sent last request.
     private static final String LAST_TIME = "lastSendTime";
+
+    // Stores the location of the pickup location until it is the appropriate time to change it.
     private static String tempLocation;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Settings.getSettings().setLastSendTimeEditor(getSharedPreferences(LAST_TIME, 0));
+
+        // Set view
         setContentView(R.layout.message_sent);
         setFontsAndText();
+
         // Sends SMS to provided phone number.
         checkTimeBeforeSend();
     }
@@ -42,21 +51,28 @@ public class SendMessageActivity extends Activity {
         SharedPreferences.Editor lastSendTimeEditor;
         long lastSendTime = getSharedPreferences(LAST_TIME, 0).getLong(LAST_TIME, -1);
         TextView locationDisplay = (TextView) findViewById(R.id.location);
+
+        // Send sms message if the user does not have any waiting time left.
         if (lastSendTime <= System.currentTimeMillis() - WAIT_TIME) {
-            Log.w("sent", "MESSAGE SENT");
+
+            // Send sms to designated phone number.
             sendSms(Settings.getSafewalkPhoneNumber());
+            // log if sms message was sent.
+            Log.w("sent", "MESSAGE SENT");
+
             lastSendTimeEditor = Settings.getSettings().getLastSendTimeEditor().edit();
             lastSendTimeEditor.putLong("lastSendTime", System.currentTimeMillis());
             lastSendTimeEditor.commit();
 
-            //Set text (pick up location)
+            // Set View (pick up location)
             locationDisplay.setText(Settings.getSettings().getPickUpLocation());
-            //Set temp location
+            // Set temp location
             tempLocation = Settings.getSettings().getPickUpLocation();
         } else {
             notifyTimeLimit(lastSendTime);
+            // log if message was not sent.
             Log.w("sent", "MESSAGE NOT SENT");
-            //Set text (previous pick up location)
+            //Set View (previous pick up location)
             locationDisplay.setText(tempLocation);
         }
     }
@@ -85,15 +101,18 @@ public class SendMessageActivity extends Activity {
         Settings.getSettings().setPhoneData(getSharedPreferences(Settings.getPhoneFile(), 0));
         String numberReturned = Settings.getSettings().getPhoneData().getString("sharedPhone", "Couldn't load data");
 
+        // Format text message.
         String sms = Settings.getSettings().getPickUpLocation()
                 + "\nThe request has been placed by " + nameReturned
                 + ". \nFor any additional information please contact the user at " + numberReturned +".";
 
         Log.w("sent", sms);
 
+        // Try sending sms
         try {
            SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null);
         } catch (Exception e) {
+            // Show alert dialog if unable to send sms
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             AlertDialog dialog = alertDialogBuilder.create();
 
@@ -114,16 +133,19 @@ public class SendMessageActivity extends Activity {
     }
 
     /**
-     * Set fonts
+     * Set fonts for the view
      */
     private void setFontsAndText() {
-        //Make font
+
+        // Make font
         Settings.getSettings().setContext(this);
-        //Get Views
+
+        // Get Views
         TextView locationDisplay = (TextView) findViewById(R.id.location);
         TextView topMessage = (TextView) findViewById(R.id.safewalk_notified);
         Button callButton = (Button) findViewById(R.id.call_safewalk);
-        //Set fonts
+
+        // Set fonts
         locationDisplay.setTypeface(Settings.getSettings().getQuicksand());
         topMessage.setTypeface(Settings.getSettings().getQuicksand());
         callButton.setTypeface(Settings.getSettings().getQuicksand());
