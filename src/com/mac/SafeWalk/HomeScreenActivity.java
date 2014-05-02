@@ -294,6 +294,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         super.onStart();
         if (!locationClient.isConnected()) {
             locationClient.connect();
+            Log.w(HomeScreenActivity.class.toString(), "Location client connected");
         }
         // Checks if GPS is enabled on device
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -301,6 +302,16 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             Toast.makeText(this, "GPS disabled. For best accuracy please enable GPS on device.",
                             Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (locationClient.isConnected()) {
+            locationClient.disconnect();
+            Log.w(HomeScreenActivity.class.toString(), "Location client disconnected");
+
         }
     }
 
@@ -318,7 +329,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     public void onDisconnected() {
         Toast.makeText(this, "Disconnected. Please re-connect.",
                 Toast.LENGTH_SHORT).show();
-        locationClient.disconnect();
     }
 
     @Override
@@ -346,4 +356,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         arrow.startAnimation(rotateAnimation);
         getAddress(getLocation(locationClient), this);
     }
+
+
 }

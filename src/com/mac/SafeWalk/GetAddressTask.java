@@ -39,10 +39,11 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         // Create a list to contain the result address
         List<Address> addresses = null;
         try {
-
+            Log.w(GetAddressTask.class.toString(), "Started getting address from server");
             // Get a list of street addresses using the geocoder.
             addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1);
+            Log.w(GetAddressTask.class.toString(), "Finished getting address from server");
         } catch (IOException e1) {
             Log.e("GetAddressTask", "IO Exception in getFromLocation");
             e1.printStackTrace();
