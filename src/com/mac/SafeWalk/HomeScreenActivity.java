@@ -255,7 +255,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             gpsAddress.setText(Settings.getSettings().getPickUpLocation());
     }
 
-//    Load Shared Preferences
+    //    Load Shared Preferences
     public String loadName(){
         //  Load Name
         Settings.getSettings().setNameData(getSharedPreferences(Settings.getFilename(), 0));
@@ -301,7 +301,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             Toast.makeText(this, "GPS disabled. For best accuracy please enable GPS on device.",
-                            Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_LONG).show();
         }
     }
 
@@ -311,7 +311,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         if (locationClient.isConnected()) {
             locationClient.disconnect();
             Log.w(HomeScreenActivity.class.toString(), "Location client disconnected");
-
         }
     }
 
@@ -334,18 +333,27 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Toast.makeText(this, "Connection Failure : " +
-                connectionResult.getErrorCode(),
+                        connectionResult.getErrorCode(),
                 Toast.LENGTH_LONG).show();
     }
 
 
     public Location getLocation(LocationClient locationClient) {
         Log.w("GPS connection", Boolean.toString(locationClient.isConnected()));
-        return locationClient.getLastLocation();
+        try {
+            return locationClient.getLastLocation();
+        } catch (IllegalStateException e){
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
     public void getAddress(Location location, Context context) {
-        (new GetAddressTask(context)).execute(location);
+        if (location != null) {
+            Log.w(HomeScreenActivity.class.toString(), "Location is null");
+            (new GetAddressTask(context)).execute(location);
+        }
     }
 
     public void retryLocation(View view) {
@@ -356,6 +364,4 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         arrow.startAnimation(rotateAnimation);
         getAddress(getLocation(locationClient), this);
     }
-
-
 }
