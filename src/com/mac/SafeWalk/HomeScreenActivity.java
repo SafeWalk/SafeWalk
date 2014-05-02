@@ -137,9 +137,9 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             Settings.getSettings().setPickUpLocation(retrieveLocation(customEdit));
             startActivity(intent);
         } else if (useGPS) {
-            if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("No address found")){
+            if (gpsFinished && Settings.getSettings().getPickUpLocation().contains("No address found")){
                 createAlertDialog("The GPS couldn't find you", "Sorry, you should try another option");
-            } else if (gpsFinished && Settings.getSettings().getPickUpLocation().equals("Location not accurate")) {
+            } else if (gpsFinished && Settings.getSettings().getPickUpLocation().contains("Your location is not")) {
                 createAlertDialog("Sorry, the GPS can't find you", "Try moving to a more open area or use another option");
             } else if (gpsFinished) {
                 startActivity(intent);

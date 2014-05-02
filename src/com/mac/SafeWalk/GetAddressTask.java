@@ -73,7 +73,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         } else if (location.getAccuracy() >= 100) {
             return "Your location is not accurate enough\nTap on the arrow to try again.";
         } else {
-            return "No address found";
+            return "No address found\nTru using a different option";
         }
     }
 
