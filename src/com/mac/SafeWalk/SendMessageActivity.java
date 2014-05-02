@@ -92,7 +92,7 @@ public class SendMessageActivity extends Activity {
         Log.w("sent", sms);
 
         try {
-            SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null);
+           SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null);
         } catch (Exception e) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             AlertDialog dialog = alertDialogBuilder.create();

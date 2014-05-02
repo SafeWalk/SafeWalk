@@ -20,7 +20,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar!/" />
+          <root url="jar://$MODULE_DIR$/../google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -29,7 +29,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Applications/android-sdk-macosx/extras/android/support/v4/android-support-v4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../comp225/android-sdk-macosx/extras/android/support/v4/android-support-v4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
