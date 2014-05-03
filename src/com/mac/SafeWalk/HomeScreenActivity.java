@@ -20,6 +20,7 @@ import com.firebase.client.ValueEventListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.location.LocationListener;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -28,7 +29,7 @@ import java.util.Observer;
  *
  */
 public class HomeScreenActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener, Observer {
+        GooglePlayServicesClient.OnConnectionFailedListener, Observer, LocationListener {
 
 
     // Boolean to check if student is choosing from spinner or inputting address.
@@ -74,6 +75,10 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         super.onResume();
         Settings.getSettings().setPickUpLocation("");
         gpsFinished = false;
+        if (!locationClient.isConnected()) {
+            locationClient.connect();
+            Log.w(HomeScreenActivity.class.toString(), "Location client connected");
+        }
     }
 
     /**
@@ -314,6 +319,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         }
     }
 
+
     @Override
     public void onStop() {
         super.onStop();
@@ -335,6 +341,11 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         Toast.makeText(this, "Connection Failure : " +
                         connectionResult.getErrorCode(),
                 Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
     }
 
 
