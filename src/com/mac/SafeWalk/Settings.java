@@ -109,7 +109,6 @@ public class Settings extends Observable{
     }
 
     public double[] getPickUpCoordinates() {
-        double[] coord = {pickUpLat, pickUpLon};
-        return coord;
+        return new double[]{pickUpLat, pickUpLon};
     }
 }
