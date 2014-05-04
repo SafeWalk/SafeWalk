@@ -18,7 +18,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 /**
  * Copyright 2012 The Android Open Source Project
@@ -47,15 +46,16 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
      * derivative, which will destroy and re-create fragments as needed, saving and restoring their
      * state in the process. This is important to conserve memory.
      */
-    private CollectionPagerAdapter mCollectionPagerAdapter;
+    private CollectionPagerAdapter collectionPagerAdapter;
 
     /**
      * The ViewPager will display the object collection.
      */
-    private ViewPager mViewPager;
+    private ViewPager viewPager;
 
     // number of tabs needed
     private final int NUM_ITEMS = 3;
+
 
     /**
      * Called when the activity is first created.
@@ -67,63 +67,54 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
         setContentView(R.layout.welcome_screen);
 
         // Create adapter
-        mCollectionPagerAdapter = new CollectionPagerAdapter(getSupportFragmentManager());
+        collectionPagerAdapter = new CollectionPagerAdapter(getSupportFragmentManager());
 
         // Set up action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.hide();
 
-        // Specify that the Home/Up button should not be enabled, since there is
-        // no hierarchical parent.
+        // Specify that the Home/Up button should not be enabled, since there is no hierarchical parent.
         actionBar.setHomeButtonEnabled(false);
 
         // Specify that we will be displaying tabs in the action bar.
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        // Set up the ViewPager, attaching the adapter and setting up logo_display listener
-        // for when the
-        // user swipes between sections.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mCollectionPagerAdapter);
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        // Set up the ViewPager
+        // Attache the adapter and implement listener in order to respond when user swipes between sections.
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setAdapter(collectionPagerAdapter);
+        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                // When swiping between different app sections, select
-                // the corresponding tab.
+                // Select the corresponding tab when user swipes
                 actionBar.setSelectedNavigationItem(position);
             }
         });
 
         // For each of the sections in the app, add tab to the action bar.
-        for (int i = 0; i < mCollectionPagerAdapter.getCount(); i++) {
-            // Create tab with text corresponding to the page title defined by
-            // the adapter.
+        for (int i = 0; i < collectionPagerAdapter.getCount(); i++) {
+            // Create tabs
             actionBar.addTab(actionBar.newTab()
-                    .setText(mCollectionPagerAdapter.getPageTitle(i))
                     .setTabListener(this));
         }
     }
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        // When the given tab is selected, switch to the corresponding page in
-        // the ViewPager.
-        mViewPager.setCurrentItem(tab.getPosition());
+        // When tab is selected, switch to the corresponding page in the ViewPager.
+        viewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
     }
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
     }
 
 
     public class CollectionPagerAdapter extends FragmentPagerAdapter {
-
 
         public CollectionPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -133,8 +124,9 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
         public Fragment getItem(int i) {
             switch (i) {
                 case 2:
-                    // This section allows us to define a new method that can launch the settings activity
-                    return new GettingStarted();
+                    // Allows us to define a new fragment (GettingStarted) and open it
+                    GettingStarted gettingStarted = new GettingStarted();
+                    return gettingStarted;
 
                 default:
                     // Gets the other fragments (tabs).
@@ -186,7 +178,6 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
                         public void onClick(View view) {
                             Intent settings = new Intent(getActivity(), SettingsActivity.class);
                             startActivity(settings);
-//                            Toast.makeText(getActivity(), "Open Settings Activity", Toast.LENGTH_SHORT).show();
                         }
                     });
 
