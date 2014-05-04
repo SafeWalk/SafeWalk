@@ -103,10 +103,10 @@ public class SendMessageActivity extends Activity {
         Settings.getSettings().setPhoneData(getSharedPreferences(Settings.getPhoneFile(), 0));
         String numberReturned = Settings.getSettings().getPhoneData().getString("sharedPhone", "Couldn't load data");
 
-        // Format text message.
-        String sms = Settings.getSettings().getPickUpLocation()
-                + "\nThe request has been placed by " + nameReturned
-                + ". \nFor any additional information please contact the user at " + numberReturned +".";
+        // Format text message. Uncomment if using SMS as communication method
+//        String sms = Settings.getSettings().getPickUpLocation()
+//                + "\nThe request has been placed by " + nameReturned
+//                + ". \nFor any additional information please contact the user at " + numberReturned +".";
 
         // Try sending sms
         try {
@@ -116,8 +116,12 @@ public class SendMessageActivity extends Activity {
             infoToPush.put("Name", nameReturned);
             infoToPush.put("Number", numberReturned);
             infoToPush.put("Location", Settings.getSettings().getPickUpLocation());
+            if (getIntent().getExtras().getBoolean("gps")){
+                infoToPush.put("Latitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[0]));
+                infoToPush.put("Longitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[1]));
+            }
             listRefPush.setValue(infoToPush);
-           //SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null); //DO NOT DELETE
+           //SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null); // Uncomment if using SMS as communication method
         } catch (Exception e) {
             // Show alert dialog if unable to send sms
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);

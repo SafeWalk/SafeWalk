@@ -43,6 +43,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             // Get a list of street addresses using the geocoder.
             addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1);
+            Settings.getSettings().setPickUpCoordinates(location.getLatitude(), location.getLongitude());
             Log.w(GetAddressTask.class.toString(), "Finished getting address from server");
         } catch (IOException e1) {
             Log.e("GetAddressTask", "IO Exception in getFromLocation");
@@ -70,7 +71,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             String addressText = String.format("%s, %s, %s", address.getMaxAddressLineIndex() > 0 ?
                     address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
             return addressText;
-        } else if (location.getAccuracy() >= 100) {
+        } else if (location.getAccuracy() >= 1000) {
             return "Your location is not accurate enough\nTap on the arrow to try again.";
         } else {
             return "No address found\nTru using a different option";

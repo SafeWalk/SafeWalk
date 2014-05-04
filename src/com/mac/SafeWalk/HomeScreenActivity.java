@@ -136,6 +136,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     private void swAvailable() {
         EditText customEdit = (EditText) findViewById(R.id.customLocationText);
         Intent intent = new Intent(this, SendMessageActivity.class);
+        intent.putExtra("gps", false);
         if (retrieveLocation(customEdit).equals("") && isCustom) {
             createAlertDialog("Empty Location", "Please enter a valid pickup location");
         } else if (isCustom) {
@@ -147,6 +148,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             } else if (gpsFinished && Settings.getSettings().getPickUpLocation().contains("Your location is not")) {
                 createAlertDialog("Sorry, the GPS can't find you", "Try moving to a more open area or use another option");
             } else if (gpsFinished) {
+                intent.putExtra("gps", true);
                 startActivity(intent);
             } else {
                 createAlertDialog("GPS hasn't finished", "GPS will be done locating you shortly");
@@ -155,7 +157,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             startActivity(intent);
         }
     }
-
     /**
      * This method generates a generic alert dialog from the two input strings and displays it.
      * @param title of the alert dialog
@@ -355,13 +356,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             return locationClient.getLastLocation();
         } catch (IllegalStateException e){
             e.printStackTrace();
-            return null;
+            return new Location("none");
         }
 
     }
 
     public void getAddress(Location location, Context context) {
-        if (location != null) {
+        if (!location.getProvider().equals("none")) {
             Log.w(HomeScreenActivity.class.toString(), "Location is null");
             (new GetAddressTask(context)).execute(location);
         }
