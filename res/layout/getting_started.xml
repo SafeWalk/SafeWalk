@@ -4,17 +4,24 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <LinearLayout android:orientation="vertical"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center">
+    <RelativeLayout android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+                    android:layout_gravity="center">
 
         <Button android:id="@+id/settings_Activity"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@string/label_tab3"/>
+                android:layout_width="280.5dp"
+                android:layout_height="60.5dp"
+                android:background="@drawable/getting_started_button"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/label_tab3"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:onClick="callSafewalk"
+                android:layout_marginTop="150dp"
+                android:layout_centerHorizontal="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </FrameLayout>

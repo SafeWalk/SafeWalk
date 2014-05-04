@@ -14,7 +14,7 @@
     <string name="Save">Save</string>
 
     <!--Welcome screen tab labels -->
-    <string name="label_tab1">Logo</string>
+    <string name="label_tab1">Welcome to the Safewalk app!</string>
     <string name="label_tab2">About Us</string>
     <string name="label_tab3">Getting Started</string>
     <string name="gps">GPS</string>

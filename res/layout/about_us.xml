@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" android:clickable="false">
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/about"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center"
-              android:textSize="24sp"
-              android:padding="32dp"
-              android:text="@string/label_tab2"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:background="@drawable/background_gradient">
 
-</LinearLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="How to use:"
+                android:id="@+id/textView"
+                android:layout_marginTop="35dp" android:textSize="38dp" android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="1."
+                android:id="@+id/textView2"
+                android:layout_marginTop="29dp" android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true" android:layout_marginLeft="50dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="2. Tap the green button!"
+                android:id="@+id/textView3"
+                android:layout_centerVertical="true" android:layout_alignLeft="@+id/textView2"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="3. Wait for a pick up"
+                android:id="@+id/textView4" android:layout_below="@+id/textView3"
+                android:layout_alignLeft="@+id/textView3" android:layout_marginTop="111dp"/>
+    </RelativeLayout>
+</FrameLayout>
