@@ -168,7 +168,7 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+                Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.getting_started, container, false);
 
             // Open the settings on click.
@@ -206,7 +206,7 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
                     tabLayout = R.layout.logo_display;
                     break;
                 case 1:
-                    tabLayout = R.layout.about_us;
+                    tabLayout = R.layout.how_to_use;
                     break;
             }
 
