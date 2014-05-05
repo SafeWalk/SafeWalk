@@ -21,6 +21,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -44,6 +45,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     // Location vars
     private LocationClient locationClient;
     private LocationManager locationManager;
+    LocationRequest locationRequest;
+
+    private static final int MILLISECONDS_PER_SECOND = 1000;
+    private static final int UPDATE_INERVAL_IN_SECONDS = 5;
+    private static final long UPDATE_INTERVAL = MILLISECONDS_PER_SECOND * UPDATE_INERVAL_IN_SECONDS;
+    private static final int FASTEST_INTERVAL_IN_SECONDS = 1;
+    private static final long FASTEST_INTERVAL = MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,10 +74,17 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             checkAvailability();
             setFonts();
         }
+
         // set up locationClient
         locationClient = new LocationClient(this, this, this);
         Settings.getSettings().setObserver(this);
         arrow = (ImageView) findViewById(R.id.arrow);
+
+        // Location updates
+        locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(UPDATE_INTERVAL);
+        locationRequest.setFastestInterval(FASTEST_INTERVAL);
     }
 
     // Disable the "back" button for the HomeScreen Activity
@@ -338,6 +353,9 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     @Override
     public void onConnected(Bundle bundle) {
         Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+
+        // Start location updates.
+        locationClient.requestLocationUpdates(locationRequest, this);
     }
 
     @Override
@@ -355,7 +373,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     @Override
     public void onLocationChanged(Location location) {
-
+        String message = "Updated Location";
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 
