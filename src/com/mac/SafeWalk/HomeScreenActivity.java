@@ -377,7 +377,6 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-
     public Location getLocation(LocationClient locationClient) {
         Log.w("GPS connection", Boolean.toString(locationClient.isConnected()));
         try {
