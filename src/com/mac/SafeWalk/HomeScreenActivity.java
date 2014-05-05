@@ -63,6 +63,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         if (name.equals("No name") && phoneNumber.equals("No number")){
             Intent welcome = new Intent(this, WelcomeActivity.class);
             startActivity(welcome);
+            finish();
         } else {
             // if user information is already saved, go to the main activity
             setContentView(R.layout.main);
