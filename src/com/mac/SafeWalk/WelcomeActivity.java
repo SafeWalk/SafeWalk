@@ -4,6 +4,7 @@ package com.mac.SafeWalk;
  * Created by Rhyan on 4/10/14.
  */
 
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -15,9 +16,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Copyright 2012 The Android Open Source Project
@@ -53,10 +58,6 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
      */
     private ViewPager viewPager;
 
-    // number of tabs needed
-    private final int NUM_ITEMS = 3;
-
-
     /**
      * Called when the activity is first created.
      */
@@ -65,7 +66,6 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_screen);
-
         // Create adapter
         collectionPagerAdapter = new CollectionPagerAdapter(getSupportFragmentManager());
 
@@ -88,21 +88,68 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
             public void onPageSelected(int position) {
                 // Select the corresponding tab when user swipes
                 actionBar.setSelectedNavigationItem(position);
+                ImageView dot1 = (ImageView) findViewById(R.id.sliding_dot1);
+                ImageView dot2 = (ImageView) findViewById(R.id.sliding_dot2);
+                switch (position) {
+                    case 0:
+                        animate(dot1);
+                        break;
+                    case 1:
+                        animate(dot2);
+                        break;
+                    case 2:
+                        break;
+                }
             }
         });
-
-        // For each of the sections in the app, add tab to the action bar.
+        // For each of the sections, add tab to the action bar.
         for (int i = 0; i < collectionPagerAdapter.getCount(); i++) {
             // Create tabs
-            actionBar.addTab(actionBar.newTab()
-                    .setTabListener(this));
+            actionBar.addTab(actionBar.newTab().setTabListener(this));
         }
+        Settings.getSettings().setContext(this);
+        setFonts();
     }
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
         // When tab is selected, switch to the corresponding page in the ViewPager.
         viewPager.setCurrentItem(tab.getPosition());
+        setFonts();
+    }
+
+    public void animate(ImageView dot) {
+        if (dot != null) {
+            Log.w("WelcomeActivity", "setting up animation");
+            ObjectAnimator appear = ObjectAnimator.ofFloat(dot, "alpha", 0f, 1f);
+            appear.setRepeatCount(2);
+            appear.setDuration(1000);
+            appear.start();
+            ObjectAnimator translation = ObjectAnimator.ofFloat(dot, "translationX", 0, -400f);
+            translation.setDuration(1000);
+            translation.setRepeatCount(2);
+            translation.start();
+            Log.w("WelcomeActivity", "starting animation");
+        }
+    }
+
+    private void setFonts() {
+        TextView[] allViews = new TextView[]{
+                (TextView) findViewById(R.id.welcome_title),
+                (TextView) findViewById(R.id.instructions_tittle),
+                (TextView) findViewById(R.id.instructions_1),
+                (TextView) findViewById(R.id.instructions_2),
+                (TextView) findViewById(R.id.instructions_3)
+        };
+        for (TextView v : allViews) {
+            if (v != null) {
+                v.setTypeface(Settings.getSettings().getQuicksand());
+            }
+        }
+        Button gettingStarted = (Button) findViewById(R.id.getting_started);
+        if (gettingStarted != null) {
+            gettingStarted.setTypeface(Settings.getSettings().getQuicksand());
+        }
     }
 
     @Override
@@ -111,6 +158,7 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+        Log.w("WelcomeActivity", "tab reselected");
     }
 
 
@@ -125,8 +173,7 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
             switch (i) {
                 case 2:
                     // Allows us to define a new fragment (GettingStarted) and open it
-                    GettingStarted gettingStarted = new GettingStarted();
-                    return gettingStarted;
+                    return new GettingStarted();
 
                 default:
                     // Gets the other fragments (tabs).
@@ -140,7 +187,7 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
 
         @Override
         public int getCount() {
-            return NUM_ITEMS;
+            return 3;
         }
 
         @Override
@@ -165,14 +212,13 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
      * A fragment that launches settings_Activity when button is pressed.
      */
     public static class GettingStarted extends Fragment {
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.getting_started, container, false);
 
             // Open the settings on click.
-            rootView.findViewById(R.id.settings_Activity)
+            rootView.findViewById(R.id.getting_started)
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -207,9 +253,9 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
                     break;
                 case 1:
                     tabLayout = R.layout.how_to_use;
+
                     break;
             }
-
             View rootView = inflater.inflate(tabLayout, container, false);
             return rootView;
         }

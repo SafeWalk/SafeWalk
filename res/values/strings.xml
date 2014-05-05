@@ -18,4 +18,8 @@
     <string name="label_tab2">How to use</string>
     <string name="label_tab3">Getting Started</string>
     <string name="gps">GPS</string>
+    <string name="how_to_use">How to use:</string>
+    <string name="one">1.</string>
+    <string name="two">2. Tap the green button!</string>
+    <string name="three">3. Wait for a pick up</string>
 </resources>

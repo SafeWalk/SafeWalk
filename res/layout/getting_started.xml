@@ -10,7 +10,7 @@
                     android:background="@drawable/background_gradient"
                     android:layout_gravity="center">
 
-        <Button android:id="@+id/settings_Activity"
+        <Button android:id="@+id/getting_started"
                 android:layout_width="280.5dp"
                 android:layout_height="60.5dp"
                 android:background="@drawable/getting_started_button"
