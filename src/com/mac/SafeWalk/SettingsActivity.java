@@ -36,6 +36,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
         save.setTypeface(Settings.getSettings().getQuicksand());
     }
 
+
     //  Introduce all the variables used in the activity and link it to the layout button
     public void setupVariables(){
         save = (Button) findViewById(R.id.saveButton);
@@ -46,28 +47,28 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
 
     public void onClick(View view) {
         //  Save name (if valid name)
-        String stringData1 = name.getText().toString();
-        if (stringData1.equals("")){
+        String enteredName = name.getText().toString();
+        if (enteredName.equals("")){
             Toast.makeText(getApplicationContext(), "Please enter your name", Toast.LENGTH_LONG).show();
         } else {
             SharedPreferences.Editor nameEditor = Settings.getSettings().getNameData().edit();
-            nameEditor.putString("sharedName", stringData1);
+            nameEditor.putString("sharedName", enteredName);
             nameEditor.commit();
         }
 
 
         //  Save phone number (if valid number)
-        String stringData2 = phone.getText().toString();
-        if (stringData2.length()==10){
+        String enteredNumber = phone.getText().toString();
+        if (enteredNumber.length()==10){
             SharedPreferences.Editor phoneEditor = Settings.getSettings().getPhoneData().edit();
-            phoneEditor.putString("sharedPhone", stringData2);
+            phoneEditor.putString("sharedPhone", enteredNumber);
             phoneEditor.commit();
         }
         else {
             Toast.makeText(getApplicationContext(), "Invalid phone number", Toast.LENGTH_LONG).show();
         }
 
-        if (checkForName(stringData1) && stringData2.length()==10){
+        if (checkForName(enteredName) && enteredNumber.length()==10){
 //            Go back to main activity if the data is saved
             Intent homeScreen = new Intent(this, HomeScreenActivity.class);
             startActivity(homeScreen);

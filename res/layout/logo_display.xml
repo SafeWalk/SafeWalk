@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
-</LinearLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_gradient" android:weightSum="1">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/label_tab1"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"
+                android:textSize="28sp"
+                android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp" android:layout_marginTop="30dp" android:layout_marginRight="35dp"
+                android:layout_alignParentEnd="false" android:layout_alignParentStart="false"
+                android:gravity="center_vertical|center_horizontal"/>
+
+        <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView" android:background="@drawable/large_steps"
+        android:layout_below="@+id/textView" android:layout_centerHorizontal="true" android:layout_marginTop="37dp"/>
+
+    </RelativeLayout>
+</FrameLayout>

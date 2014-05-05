@@ -48,13 +48,15 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        If no name and phone number saved, go to settingsActivity
+        //If no name and phone number saved, go to WelcomeActivity
+        //This happens when the user opens the app for the first time
         String name = loadName();
         String phoneNumber = loadNumber();
         if (name.equals("No name") && phoneNumber.equals("No number")){
             Intent welcome = new Intent(this, WelcomeActivity.class);
             startActivity(welcome);
         } else {
+            // if user information is already saved, go to the main activity
             setContentView(R.layout.main);
             // set up locationSpinner
             Spinner locationSpinner = setSpinner();
@@ -68,6 +70,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         locationClient = new LocationClient(this, this, this);
         Settings.getSettings().setObserver(this);
         arrow = (ImageView) findViewById(R.id.arrow);
+    }
+
+    // Disable the "back" button for the HomeScreen Activity
+    // Prevent the app to back back to the welcome screen
+    @Override
+    public void onBackPressed() {
+        onResume();
     }
 
     @Override
