@@ -12,40 +12,78 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/how_to_use"
                 android:id="@+id/instructions_tittle"
                 android:layout_marginTop="35dp"
-                android:textSize="38sp"
+                android:textSize="44sp"
+                android:textColor="#FFFFFF"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"/>
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="30sp"
                 android:text="@string/one"
                 android:id="@+id/instructions_1"
                 android:layout_marginTop="29dp"
+                android:textColor="#FFFFFF"
                 android:layout_below="@+id/instructions_tittle"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginLeft="30dp"/>
+
+     <!--   <TextView
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:id="@+id/fake_select"
+                android:text="@string/select"
+                android:textSize="30sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:layout_toRightOf="@id/instructions_1"
+                android:layout_alignTop="@id/instructions_tittle"
+                android:background="@drawable/save"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="80dp"/>
+
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/instructions_1_2"
+                android:text="@string/one_part_two"
+                android:textSize="30sp"
+                android:textColor="#FFFFFF"
+                android:layout_toRightOf="@id/instructions_1"
+                android:layout_alignTop="@id/instructions_tittle"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="80dp"/>
+                -->
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="20dp"
                 android:text="@string/two"
                 android:id="@+id/instructions_2"
-                android:layout_centerVertical="true"
+                android:layout_marginTop="70dp"
+                android:layout_below="@+id/instructions_1"
                 android:layout_alignLeft="@+id/instructions_1"/>
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="30sp"
+                android:textColor="#FFFFFF"
                 android:text="@string/three"
                 android:id="@+id/instructions_3"
                 android:layout_below="@+id/instructions_2"
                 android:layout_alignLeft="@+id/instructions_2"
-                android:layout_marginTop="111dp"/>
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="20dp"/>
 
         <ImageView
                 android:layout_width="wrap_content"

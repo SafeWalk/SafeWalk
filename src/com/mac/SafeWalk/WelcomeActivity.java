@@ -108,7 +108,6 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
             actionBar.addTab(actionBar.newTab().setTabListener(this));
         }
         Settings.getSettings().setContext(this);
-        setFonts();
     }
 
     @Override
@@ -123,10 +122,10 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
             Log.w("WelcomeActivity", "setting up animation");
             ObjectAnimator appear = ObjectAnimator.ofFloat(dot, "alpha", 0f, 1f);
             appear.setRepeatCount(2);
-            appear.setDuration(1000);
+            appear.setDuration(2000);
             appear.start();
             ObjectAnimator translation = ObjectAnimator.ofFloat(dot, "translationX", 0, -400f);
-            translation.setDuration(1000);
+            translation.setDuration(2000);
             translation.setRepeatCount(2);
             translation.start();
             Log.w("WelcomeActivity", "starting animation");
@@ -139,7 +138,7 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
                 (TextView) findViewById(R.id.instructions_tittle),
                 (TextView) findViewById(R.id.instructions_1),
                 (TextView) findViewById(R.id.instructions_2),
-                (TextView) findViewById(R.id.instructions_3)
+                (TextView) findViewById(R.id.instructions_3),
         };
         for (TextView v : allViews) {
             if (v != null) {
@@ -158,7 +157,6 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-        Log.w("WelcomeActivity", "tab reselected");
     }
 
 
@@ -218,14 +216,13 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
             View rootView = inflater.inflate(R.layout.getting_started, container, false);
 
             // Open the settings on click.
-            rootView.findViewById(R.id.getting_started)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent settings = new Intent(getActivity(), SettingsActivity.class);
-                            startActivity(settings);
-                        }
-                    });
+            rootView.findViewById(R.id.getting_started).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent settings = new Intent(getActivity(), SettingsActivity.class);
+                    startActivity(settings);
+                }
+            });
 
             return rootView;
         }
@@ -234,14 +231,13 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
     /*
      * Display the other fragment tabs
      */
-    public static class TabFragment extends Fragment {
+    public class TabFragment extends Fragment {
 
         public static final String ARG_SECTION_NUMBER = "section_number";
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-
             Bundle args = getArguments();
             int position = args.getInt(ARG_SECTION_NUMBER);
 
@@ -253,10 +249,11 @@ public class WelcomeActivity extends FragmentActivity implements ActionBar.TabLi
                     break;
                 case 1:
                     tabLayout = R.layout.how_to_use;
-
                     break;
             }
             View rootView = inflater.inflate(tabLayout, container, false);
+            setFonts();
+            animate((ImageView) findViewById(R.id.sliding_dot1));
             return rootView;
         }
     }

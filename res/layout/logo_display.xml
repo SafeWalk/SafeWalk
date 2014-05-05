@@ -13,14 +13,18 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/label_tab1"
                 android:id="@+id/welcome_title"
                 android:layout_gravity="center_horizontal"
-                android:textSize="28sp"
-                android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-                android:layout_marginLeft="35dp" android:layout_marginTop="30dp" android:layout_marginRight="35dp"
-                android:layout_alignParentEnd="false" android:layout_alignParentStart="false"
+                android:textSize="37sp"
+                android:textColor="#FFFFFF"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
                 android:gravity="center_vertical|center_horizontal"/>
 
         <ImageView

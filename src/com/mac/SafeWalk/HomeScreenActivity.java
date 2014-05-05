@@ -373,8 +373,8 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
 
     @Override
     public void onLocationChanged(Location location) {
-        String message = "Updated Location";
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+//        String message = "Updated Location";
+//        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     public Location getLocation(LocationClient locationClient) {
