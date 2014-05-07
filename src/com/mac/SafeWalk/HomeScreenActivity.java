@@ -23,8 +23,7 @@ import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 /**
  *
@@ -254,6 +253,9 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
                     arrow.setVisibility(View.INVISIBLE);
                     isCustom = false;
                     useGPS = false;
+
+                    String pickUpLocation = Settings.getSettings().getPickUpLocation();
+                    updatePickUpCoordinates(pickUpLocation);
                 }
             }
             // Leave this method; this has to be here.
@@ -262,6 +264,53 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             }
         });
     }
+
+
+    // Update coordinated for the campus buildings to send to web page in order to
+    // update the location on google map
+    private void updatePickUpCoordinates(String location){
+        String [] locations = Settings.getSettings().getCampusBuildings();
+        HashMap<String, double []> campusCoordinates = Settings.getSettings().campusCoordinates;
+        setCampusCoordinates();
+        for (int i=0; i<= locations.length -1; i++){
+            if (location == locations[i]){
+                double [] buildingCoordinate = campusCoordinates.get(location);
+                Settings.getSettings().setPickUpCoordinates(buildingCoordinate[0], buildingCoordinate[1]);
+            }
+        }
+    }
+
+    // Set the coordinated for campus buildings
+    public void setCampusCoordinates(){
+//        setCampusBuildings();
+        HashMap<String, double []> campusCoordinates = Settings.getSettings().campusCoordinates;
+        String [] locations = Settings.getSettings().getCampusBuildings();
+        campusCoordinates.put(locations[0], new double[]{44.940858,-93.169073});
+        campusCoordinates.put(locations[1], new double[]{44.94082,-93.168579});
+        campusCoordinates.put(locations[2], new double[]{44.940342,-93.16859});
+        campusCoordinates.put(locations[3], new double[]{44.941025,-93.167839});
+        campusCoordinates.put(locations[4], new double[]{44.940813,-93.170414});
+        campusCoordinates.put(locations[5], new double[]{44.940661,-93.169108});
+        campusCoordinates.put(locations[6], new double[]{44.940461,-93.169907});
+        campusCoordinates.put(locations[7], new double[]{44.939385,-93.167689});
+        campusCoordinates.put(locations[8], new double[]{44.938489,-93.168236});
+        campusCoordinates.put(locations[9], new double[]{44.937091,-93.167807});
+        campusCoordinates.put(locations[10], new double[]{44.937589,-93.169561});
+        campusCoordinates.put(locations[11], new double[]{44.936708,-93.168976});
+        campusCoordinates.put(locations[12], new double[]{44.935371,-93.168172});
+        campusCoordinates.put(locations[13], new double[]{44.93872,-93.169164});
+        campusCoordinates.put(locations[14], new double[]{44.937388,-93.169207});
+    }
+
+    // Construct list of campus buildings from the ones in the spinner
+//    public void setCampusBuildings (){
+//        String[] campusBuildings = Settings.getSettings().getCampusBuildings();
+//        String [] locations = Settings.getSettings().swLocations();
+//        for (int i=3; i<=locations.length; i++){
+//            campusBuildings.add(locations[i]);
+//        }
+//    }
+
 
     /*
      * Changes the fonts and color of the fonts

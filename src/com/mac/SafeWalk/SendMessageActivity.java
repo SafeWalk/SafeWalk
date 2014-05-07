@@ -116,10 +116,12 @@ public class SendMessageActivity extends Activity {
             infoToPush.put("Name", nameReturned);
             infoToPush.put("Number", numberReturned);
             infoToPush.put("Location", Settings.getSettings().getPickUpLocation());
-            if (getIntent().getExtras().getBoolean("gps")){
-                infoToPush.put("Latitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[0]));
-                infoToPush.put("Longitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[1]));
-            }
+            infoToPush.put("Latitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[0]));
+            infoToPush.put("Longitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[1]));
+//            if (getIntent().getExtras().getBoolean("gps")){
+//                infoToPush.put("Latitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[0]));
+//                infoToPush.put("Longitude", Double.toString(Settings.getSettings().getPickUpCoordinates()[1]));
+//            }
             listRefPush.setValue(infoToPush);
            //SmsManager.getDefault().sendTextMessage(phoneNumber, null, sms, null, null); // Uncomment if using SMS as communication method
         } catch (Exception e) {

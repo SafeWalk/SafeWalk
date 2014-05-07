@@ -1,9 +1,5 @@
 package com.mac.SafeWalk;
 
-/**
- * Created by Rhyan on 4/10/14.
- */
-
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
