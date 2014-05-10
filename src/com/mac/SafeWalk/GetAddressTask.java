@@ -23,7 +23,6 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         this.context = context;
     }
 
-
     /*
      * Do task in background so there is no interruption.
      */
@@ -50,11 +49,8 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             e1.printStackTrace();
         } catch (IllegalArgumentException e2) {
             // Make error string
-            String errorString = "Illegal arguments " +
-                    Double.toString(location.getLatitude()) +
-                    " , " +
-                    Double.toString(location.getLongitude()) +
-                    " passed to address services";
+            String errorString = "Illegal arguments " + Double.toString(location.getLatitude()) + " , " +
+                    Double.toString(location.getLongitude()) + " passed to address services";
             Log.e("GetAddressTask" , errorString);
             e2.printStackTrace();
             return errorString;
@@ -66,12 +62,11 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         if (addresses != null && addresses.size() > 0 && (location.getAccuracy() < 100)) {
             // Get first address from list
             Address address = addresses.get(0);
-
             // Format the address.
             String addressText = String.format("%s, %s, %s", address.getMaxAddressLineIndex() > 0 ?
                     address.getAddressLine(0) : "", address.getLocality(), address.getCountryName());
             return addressText;
-        } else if (location.getAccuracy() >= 1000) {
+        } else if (location.getAccuracy() >= 100) {
             return "Your location is not accurate enough\nTap on the arrow to try again.";
         } else {
             return "No address found\nTru using a different option";

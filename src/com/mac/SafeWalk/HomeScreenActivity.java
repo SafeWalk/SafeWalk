@@ -87,8 +87,9 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
         locationRequest.setFastestInterval(FASTEST_INTERVAL);
     }
 
-    // Disable the "back" button for the HomeScreen Activity
-    // Prevent the app to back back to the welcome screen
+    /* Disable the "back" button for the HomeScreen Activity
+     * Prevent the app to back back to the welcome screen
+     */
     @Override
     public void onBackPressed() {
         onResume();
@@ -160,7 +161,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     private void swAvailable() {
         EditText customEdit = (EditText) findViewById(R.id.customLocationText);
         Intent intent = new Intent(this, SendMessageActivity.class);
-        intent.putExtra("gps", false);
+        intent.putExtra("coordinates", false);
         if (retrieveLocation(customEdit).equals("") && isCustom) {
             createAlertDialog("Empty Location", "Please enter a valid pickup location");
         } else if (isCustom) {
@@ -172,12 +173,13 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
             } else if (gpsFinished && Settings.getSettings().getPickUpLocation().contains("Your location is not")) {
                 createAlertDialog("Sorry, the GPS can't find you", "Try moving to a more open area or use another option");
             } else if (gpsFinished) {
-                intent.putExtra("gps", true);
+                intent.putExtra("coordinates", true);
                 startActivity(intent);
             } else {
                 createAlertDialog("GPS hasn't finished", "GPS will be done locating you shortly");
             }
         } else if (!Settings.getSettings().getPickUpLocation().equals("Select")) {
+            intent.putExtra("coordinates", true);
             startActivity(intent);
         }
     }

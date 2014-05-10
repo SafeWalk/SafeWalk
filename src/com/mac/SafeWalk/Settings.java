@@ -11,7 +11,7 @@ import java.util.Observable;
  * Utilities class that keeps track of global variables. It is a singleton so there
  * is only one instance of this class.
  */
-public class Settings extends Observable{
+public class Settings extends Observable {
 
     private static final Settings settings = new Settings(); //singleton
     private Settings(){ setCampusCoordinates(); }
