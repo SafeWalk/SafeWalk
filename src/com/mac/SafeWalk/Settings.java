@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Observable;
 
 /**
@@ -20,9 +23,18 @@ public class Settings extends Observable{
     private double pickUpLat = 0;
     private double pickUpLon = 0;
     private final static String SAFEWALK_PHONE_NUMBER = "6123237668"; //"6512420083";  //Currently Kohei's number
-    private String[] swLocations = {"Select", "Current Location", "Custom Location", "Wallace", "Doty",
-                                    "Turck", "Dupre", "Campus Center", "Library", "Old Main", "Janet Wallace",
-                                    "Olin Rice", "Stadium", "Carnegie", "30 Mac", "77 Mac", "Neil Hall"};
+    private String[] swLocations = {"Select", "Current Location", "Custom Location", "Wallace", "Doty", "Turck", "Dupre", "GDD",
+                                    "30 Mac", "77 Mac", "Campus Center", "Library", "Leonard Center", "Janet Wallace",
+                                    "Olin Rice", "Stadium", "Carnegie", "Neil Hall"};
+
+    private String[] campusBuildings = {"Wallace", "Doty", "Turck", "Dupre", "GDD", "30 Mac", "77 Mac", "Campus Center",
+                                        "Library", "Leonard Center", "Janet Wallace", "Olin Rice", "Stadium", "Carnegie", "Neil Hall"};
+
+//    private List<String> campusBuildings= new ArrayList<String>();
+
+    // Coordinates for each of the campus buildings
+    HashMap<String, double[]> campusCoordinates = new HashMap<String, double[]>();
+
 
     // Phone and name data
     private SharedPreferences nameData;
