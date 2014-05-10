@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Observable;
 
 /**
@@ -16,7 +14,7 @@ import java.util.Observable;
 public class Settings extends Observable{
 
     private static final Settings settings = new Settings(); //singleton
-    private Settings(){}
+    private Settings(){ setCampusCoordinates(); }
     private Context context;
 
     private String pickUpLocation = "";
@@ -26,11 +24,6 @@ public class Settings extends Observable{
     private String[] swLocations = {"Select", "Current Location", "Custom Location", "Wallace", "Doty", "Turck", "Dupre", "GDD",
                                     "30 Mac", "77 Mac", "Campus Center", "Library", "Leonard Center", "Janet Wallace",
                                     "Olin Rice", "Stadium", "Carnegie", "Neil Hall"};
-
-    private String[] campusBuildings = {"Wallace", "Doty", "Turck", "Dupre", "GDD", "30 Mac", "77 Mac", "Campus Center",
-                                        "Library", "Leonard Center", "Janet Wallace", "Olin Rice", "Stadium", "Carnegie", "Neil Hall"};
-
-//    private List<String> campusBuildings= new ArrayList<String>();
 
     // Coordinates for each of the campus buildings
     HashMap<String, double[]> campusCoordinates = new HashMap<String, double[]>();
@@ -122,5 +115,23 @@ public class Settings extends Observable{
 
     public double[] getPickUpCoordinates() {
         return new double[]{pickUpLat, pickUpLon};
+    }
+
+    private void setCampusCoordinates(){
+            campusCoordinates.put(swLocations[3], new double[]{44.940858, -93.169073});
+            campusCoordinates.put(swLocations[4], new double[]{44.94082, -93.168579});
+            campusCoordinates.put(swLocations[5], new double[]{44.940342, -93.16859});
+            campusCoordinates.put(swLocations[6], new double[]{44.941025, -93.167839});
+            campusCoordinates.put(swLocations[7], new double[]{44.940813, -93.170414});
+            campusCoordinates.put(swLocations[8], new double[]{44.940661, -93.169108});
+            campusCoordinates.put(swLocations[9], new double[]{44.940461, -93.169907});
+            campusCoordinates.put(swLocations[10], new double[]{44.939385, -93.167689});
+            campusCoordinates.put(swLocations[11], new double[]{44.938489, -93.168236});
+            campusCoordinates.put(swLocations[12], new double[]{44.937091, -93.167807});
+            campusCoordinates.put(swLocations[13], new double[]{44.937589, -93.169561});
+            campusCoordinates.put(swLocations[14], new double[]{44.936708, -93.168976});
+            campusCoordinates.put(swLocations[15], new double[]{44.935371, -93.168172});
+            campusCoordinates.put(swLocations[16], new double[]{44.93872, -93.169164});
+            campusCoordinates.put(swLocations[17], new double[]{44.937388, -93.169207});
     }
 }

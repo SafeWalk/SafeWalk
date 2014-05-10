@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class SendMessageActivity extends Activity {
 
     // Time in milliseconds of how long user must wait after sending a request to safewalk.
-    private static final long WAIT_TIME = 1;
+    private static final long WAIT_TIME = 10000; //1200000;
 
     // The time of when user sent last request.
     private static final String LAST_TIME = "lastSendTime";
