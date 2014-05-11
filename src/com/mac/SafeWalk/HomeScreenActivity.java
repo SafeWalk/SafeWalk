@@ -107,7 +107,7 @@ public class HomeScreenActivity extends Activity implements GooglePlayServicesCl
     }
 
     /**
-     * Checks the availability of Safewalk though Firebase
+     * Checks the availability of Safewalk through Firebase
      */
     private void checkAvailability() {
         Firebase ref = new Firebase("https://safewalk.firebaseio.com/Status");
